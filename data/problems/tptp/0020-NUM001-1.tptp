@@ -1,0 +1,35 @@
+% -----------------------------------------------------------------------------
+% Name: NUM001-1
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X] : equalish(X, X) &
+      ! [X, Y, Z] :
+        (~ equalish(X, Y) | ~ equalish(Y, Z) | equalish(X, Z)) &
+      ! [X, Y] : equalish(add(X, Y), add(Y, X)) &
+      ! [X, Y, Z] : equalish(add(X, add(Y, Z)), add(add(X, Y), Z)) &
+      ! [X, Y] : equalish(subtract(add(X, Y), Y), X) &
+      ! [X, Y] : equalish(X, subtract(add(X, Y), Y)) &
+      ! [X, Y, Z] :
+        equalish(add(subtract(X, Y), Z), subtract(add(X, Z), Y)) &
+      ! [X, Y, Z] :
+        equalish(subtract(add(X, Y), Z), add(subtract(X, Z), Y)) &
+      ! [X, Y, Z, V] :
+        (~ equalish(X, Y) | ~ equalish(Z, add(X, V)) |
+         equalish(Z, add(Y, V))) &
+      ! [X, Y, Z, V] :
+        (~ equalish(X, Y) | ~ equalish(Z, add(V, X)) |
+         equalish(Z, add(V, Y))) &
+      ! [X, Y, Z, V] :
+        (~ equalish(X, Y) | ~ equalish(Z, subtract(X, V)) |
+         equalish(Z, subtract(Y, V))) &
+      ! [X, Y, Z, V] :
+        (~ equalish(X, Y) | ~ equalish(Z, subtract(V, X)) |
+         equalish(Z, subtract(V, Y)))) =>
+     (~ equalish(add(add(a, b), c), add(a, add(b, c))) => $false))).

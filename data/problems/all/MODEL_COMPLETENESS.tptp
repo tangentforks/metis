@@ -1,0 +1,23 @@
+% -----------------------------------------------------------------------------
+% Name: MODEL_COMPLETENESS
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% An incestuous example used to establish completeness
+% characterization. [JRH]
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [W, X] : (sentence(X) => (holds(W, X) | holds(W, not(X)))) &
+      ! [W, X] : ~ (holds(W, X) & holds(W, not(X)))) =>
+     (! [X] :
+        (sentence(X) =>
+         (! [W] : (models(W, s) => holds(W, X)) |
+          ! [W] : (models(W, s) => holds(W, not(X))))) <=>
+      ! [W, V] :
+        ((models(W, s) & models(V, s)) =>
+         ! [X] : (sentence(X) => (holds(W, X) <=> holds(V, X))))))).

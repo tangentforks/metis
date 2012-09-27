@@ -1,0 +1,12 @@
+% -----------------------------------------------------------------------------
+% Name: PROP_17
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    (((p & (q => r)) => s) <=> ((~ p | q | s) & (~ p | ~ r | s)))).

@@ -1,0 +1,23 @@
+% -----------------------------------------------------------------------------
+% Name: JACOBSON_2
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X] : add(0, X) = X & ! [X] : add(X, 0) = X &
+      ! [X] : add(negate(X), X) = 0 & ! [X] : add(X, negate(X)) = 0 &
+      ! [X, Y, Z] : add(X, add(Y, Z)) = add(add(X, Y), Z) &
+      ! [X, Y] : add(X, Y) = add(Y, X) &
+      ! [X, Y, Z] :
+        multiply(X, multiply(Y, Z)) = multiply(multiply(X, Y), Z) &
+      ! [X, Y, Z] :
+        multiply(X, add(Y, Z)) = add(multiply(X, Y), multiply(X, Z)) &
+      ! [X, Y, Z] :
+        multiply(add(X, Y), Z) = add(multiply(X, Z), multiply(Y, Z)) &
+      ! [X] : multiply(X, X) = X) =>
+     ! [X, Y] : multiply(X, Y) = multiply(Y, X))).

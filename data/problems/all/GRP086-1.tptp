@@ -1,0 +1,25 @@
+% -----------------------------------------------------------------------------
+% Name: GRP086-1
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% Bug check: used to be unsolvable without sticky constraints
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X] : X = X & ! [X, Y] : (X != Y | Y = X) &
+      ! [X, Y, Z] : (X != Y | Y != Z | X = Z) &
+      ! [X, Y, Z] :
+        multiply(X, multiply(multiply(Y, Z), i(multiply(X, Z)))) = Y &
+      ! [X, Y] : (X != Y | i(X) = i(Y)) &
+      ! [X, Y, Z] : (X != Y | multiply(X, Z) = multiply(Y, Z)) &
+      ! [X, Y, Z] : (X != Y | multiply(Z, X) = multiply(Z, Y))) =>
+     (! [X, Y] :
+        (multiply(i(a1), a1) != multiply(i(b1), b1) |
+         multiply(multiply(i(b2), b2), a2) != a2 |
+         multiply(multiply(a3, b3), c3) != multiply(a3, multiply(b3, c3)) |
+         multiply(X, Y) != multiply(Y, X)) => $false))).

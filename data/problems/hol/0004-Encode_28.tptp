@@ -1,0 +1,50 @@
+% -----------------------------------------------------------------------------
+% Name: Encode_28
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z, V] : (X != Y | Z != V | 'MOD'(X, Z) = 'MOD'(Y, V)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | multiply(X, Z) = multiply(Y, V)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | add(X, Z) = add(Y, V)) &
+      ! [X, Y] : (X != Y | 'NUMERAL'(X) = 'NUMERAL'(Y)) &
+      ! [X, Y] : (X != Y | 'BIT2'(X) = 'BIT2'(Y)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | 'EXP'(X, Z) = 'EXP'(Y, V)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | 'DIV'(X, Z) = 'DIV'(Y, V)) &
+      ! [X, Y] : (X != Y | 'BIT1'(X) = 'BIT1'(Y)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | less_than(Y, V) | ~ less_than(X, Z)) &
+      ! [X, Y, Z] : (X != Y | X != Z | Y = Z) & ! [X] : X = X &
+      ! [X, Y] : multiply(X, Y) = multiply(Y, X) &
+      ! [X, Y, Z] :
+        ('MOD'('MOD'(X, multiply(Y, Z)), Y) = 'MOD'(X, Y) |
+         ~ less_than(0, Y) | ~ less_than(0, Z))) =>
+     ((! [X] :
+         ('MOD'(X, 'NUMERAL'('BIT2'('ZERO'))) = 0 |
+          'MOD'(X, 'NUMERAL'('BIT2'('ZERO'))) =
+          'NUMERAL'('BIT1'('ZERO'))) &
+       'MOD'(add(multiply('DIV'(x, 'NUMERAL'('BIT2'('ZERO'))),
+             'NUMERAL'('BIT2'('ZERO'))),
+           'MOD'(x, 'NUMERAL'('BIT2'('ZERO')))),
+         multiply('NUMERAL'('BIT2'('ZERO')),
+           'EXP'('NUMERAL'('BIT2'('ZERO')), m))) =
+       'MOD'(add(multiply('DIV'(y, 'NUMERAL'('BIT2'('ZERO'))),
+             'NUMERAL'('BIT2'('ZERO'))),
+           'MOD'(y, 'NUMERAL'('BIT2'('ZERO')))),
+         multiply('NUMERAL'('BIT2'('ZERO')),
+           'EXP'('NUMERAL'('BIT2'('ZERO')), m))) &
+       less_than(0, 'EXP'('NUMERAL'('BIT2'('ZERO')), m)) &
+       less_than(0, 'NUMERAL'('BIT2'('ZERO'))) &
+       ! [X, Y] :
+         'MOD'(add(multiply(X, 'NUMERAL'('BIT2'('ZERO'))),
+             'MOD'(x, 'NUMERAL'('BIT2'('ZERO')))),
+           'NUMERAL'('BIT2'('ZERO'))) !=
+         'MOD'(add(multiply(Y, 'NUMERAL'('BIT2'('ZERO'))),
+             'MOD'(y, 'NUMERAL'('BIT2'('ZERO')))),
+           'NUMERAL'('BIT2'('ZERO')))) => $false))).

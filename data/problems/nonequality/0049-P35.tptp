@@ -1,0 +1,11 @@
+% -----------------------------------------------------------------------------
+% Name: P35
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture, (? [X, Y] : (p(X, Y) => ! [X, Y] : p(X, Y)))).

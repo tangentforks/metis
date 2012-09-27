@@ -1,0 +1,38 @@
+% -----------------------------------------------------------------------------
+% Name: PUZ020-1
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X] : X = X & ! [X, Y] : (X != Y | Y = X) &
+      ! [X, Y, Z] : (X != Y | Y != Z | X = Z) &
+      ! [X, Y] : (X != Y | statement_by(X) = statement_by(Y)) &
+      ! [X] : (~ person(X) | knight(X) | knave(X)) &
+      ! [X] : (~ person(X) | ~ knight(X) | ~ knave(X)) &
+      ! [X, Y] : (~ says(X, Y) | a_truth(Y) | ~ a_truth(Y)) &
+      ! [X, Y] : (~ says(X, Y) | X != Y) &
+      ! [X, Y] : (~ says(X, Y) | Y = statement_by(X)) &
+      ! [X, Y] : (~ person(X) | X != statement_by(Y)) &
+      ! [X] : (~ person(X) | ~ a_truth(statement_by(X)) | knight(X)) &
+      ! [X] : (~ person(X) | a_truth(statement_by(X)) | knave(X)) &
+      ! [X, Y] : (X != Y | ~ knight(X) | knight(Y)) &
+      ! [X, Y] : (X != Y | ~ knave(X) | knave(Y)) &
+      ! [X, Y] : (X != Y | ~ person(X) | person(Y)) &
+      ! [X, Y, Z] : (X != Y | ~ says(X, Z) | says(Y, Z)) &
+      ! [X, Y, Z] : (X != Y | ~ says(Z, X) | says(Z, Y)) &
+      ! [X, Y] : (X != Y | ~ a_truth(X) | a_truth(Y)) &
+      ! [X, Y] : (~ knight(X) | ~ says(X, Y) | a_truth(Y)) &
+      ! [X, Y] : (~ knave(X) | ~ says(X, Y) | ~ a_truth(Y)) &
+      person(husband) & person(wife) & husband != wife &
+      says(husband, statement_by(husband)) &
+      (~ a_truth(statement_by(husband)) | ~ knight(husband) |
+       knight(wife)) &
+      (a_truth(statement_by(husband)) | ~ knight(husband)) &
+      (a_truth(statement_by(husband)) | knight(wife)) &
+      (~ knight(wife) | a_truth(statement_by(husband)))) =>
+     (~ knight(husband) => $false))).

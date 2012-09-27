@@ -1,0 +1,23 @@
+% -----------------------------------------------------------------------------
+% Name: ROB002-1
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X] : X = X & ! [X, Y] : (X != Y | Y = X) &
+      ! [X, Y, Z] : (X != Y | Y != Z | X = Z) &
+      ! [X, Y] : add(X, Y) = add(Y, X) &
+      ! [X, Y, Z] : add(add(X, Y), Z) = add(X, add(Y, Z)) &
+      ! [X, Y] :
+        negate(add(negate(add(X, Y)), negate(add(X, negate(Y))))) = X &
+      ! [X, Y, Z] : (X != Y | add(X, Z) = add(Y, Z)) &
+      ! [X, Y, Z] : (X != Y | add(Z, X) = add(Z, Y)) &
+      ! [X, Y] : (X != Y | negate(X) = negate(Y)) &
+      ! [X] : negate(negate(X)) = X) =>
+     (add(negate(add(a, negate(b))), negate(add(negate(a), negate(b)))) !=
+      b => $false))).

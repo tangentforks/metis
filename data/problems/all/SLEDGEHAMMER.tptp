@@ -1,0 +1,23 @@
+% -----------------------------------------------------------------------------
+% Name: SLEDGEHAMMER
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% From Tobias Nipkow: A ==> A takes 1 minute in sledgehammer.
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    (! [X, Y, Z, T] :
+       (append(X, Y) = append(Z, T) <=>
+        ? [U] :
+          ((X = append(Z, U) & append(U, Y) = T) |
+           (append(X, U) = Z & Y = append(U, T)))) =>
+     ! [X, Y, Z, T] :
+       (append(X, Y) = append(Z, T) <=>
+        ? [U] :
+          ((X = append(Z, U) & append(U, Y) = T) |
+           (append(X, U) = Z & Y = append(U, T)))))).

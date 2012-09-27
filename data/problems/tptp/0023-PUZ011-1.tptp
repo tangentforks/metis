@@ -1,0 +1,27 @@
+% -----------------------------------------------------------------------------
+% Name: PUZ011-1
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% Curiosity: solved trivially by meson without cache cutting, but not with.
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((ocean(atlantic) & ocean(indian) & borders(atlantic, brazil) &
+      borders(atlantic, uruguay) & borders(atlantic, venesuela) &
+      borders(atlantic, zaire) & borders(atlantic, nigeria) &
+      borders(atlantic, angola) & borders(indian, india) &
+      borders(indian, pakistan) & borders(indian, iran) &
+      borders(indian, somalia) & borders(indian, kenya) &
+      borders(indian, tanzania) & south_american(brazil) &
+      south_american(uruguay) & south_american(venesuela) &
+      african(zaire) & african(nigeria) & african(angola) &
+      african(somalia) & african(kenya) & african(tanzania) &
+      asian(india) & asian(pakistan) & asian(iran)) =>
+     (! [X, Y, Z] :
+        (~ ocean(X) | ~ borders(X, Y) | ~ african(Y) | ~ borders(X, Z) |
+         ~ asian(Z)) => $false))).

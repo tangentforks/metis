@@ -1,0 +1,30 @@
+% -----------------------------------------------------------------------------
+% Name: STEAM_ROLLER
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    (((! [X] : (p1(X) => p0(X)) & ? [X] : p1(X)) &
+      (! [X] : (p2(X) => p0(X)) & ? [X] : p2(X)) &
+      (! [X] : (p3(X) => p0(X)) & ? [X] : p3(X)) &
+      (! [X] : (p4(X) => p0(X)) & ? [X] : p4(X)) &
+      (! [X] : (p5(X) => p0(X)) & ? [X] : p5(X)) &
+      (? [X] : q1(X) & ! [X] : (q1(X) => q0(X))) &
+      ! [X] :
+        (p0(X) =>
+         (! [Y] : (q0(Y) => r(X, Y)) |
+          ! [Y] :
+            ((p0(Y) & s0(Y, X) & ? [Z] : (q0(Z) & r(Y, Z))) => r(X, Y)))) &
+      ! [X, Y] : ((p3(Y) & (p5(X) | p4(X))) => s0(X, Y)) &
+      ! [X, Y] : ((p3(X) & p2(Y)) => s0(X, Y)) &
+      ! [X, Y] : ((p2(X) & p1(Y)) => s0(X, Y)) &
+      ! [X, Y] : ((p1(X) & (p2(Y) | q1(Y))) => ~ r(X, Y)) &
+      ! [X, Y] : ((p3(X) & p4(Y)) => r(X, Y)) &
+      ! [X, Y] : ((p3(X) & p5(Y)) => ~ r(X, Y)) &
+      ! [X] : ((p4(X) | p5(X)) => ? [Y] : (q0(Y) & r(X, Y)))) =>
+     ? [X, Y] : (p0(X) & p0(Y) & ? [Z] : (q1(Z) & r(Y, Z) & r(X, Y))))).

@@ -1,0 +1,26 @@
+% -----------------------------------------------------------------------------
+% Name: DeepSyntax_47
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z, V] : (X != Y | Z != V | int_add(X, Z) = int_add(Y, V)) &
+      ! [X, Y] : (X != Y | int_neg(X) = int_neg(Y)) &
+      ! [X, Y] : (X != Y | int_of_num(X) = int_of_num(Y)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | int_lt(Y, V) | ~ int_lt(X, Z)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | eval_form(Y, V) | ~ eval_form(X, Z)) &
+      ! [X, Y, Z] : (X != Y | X != Z | Y = Z) & ! [X] : X = X &
+      ! [X, Y, Z, V] :
+        (int_lt(int_add(X, Y), int_add(Z, V)) | ~ int_lt(X, Z) |
+         ~ int_lt(Y, V)) & ! [X] : int_add(X, int_of_num(0)) = X &
+      ! [X] : int_add(X, int_neg(X)) = int_of_num(0) &
+      ! [X, Y, Z] :
+        int_add(X, int_add(Y, Z)) = int_add(int_add(X, Y), Z)) =>
+     ((int_lt(int_neg(d), int_of_num(0)) & eval_form(g, x) &
+       int_lt(int_add(x, d), i) & ~ int_lt(x, i)) => $false))).

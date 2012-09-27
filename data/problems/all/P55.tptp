@@ -1,0 +1,25 @@
+% -----------------------------------------------------------------------------
+% Name: P55
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% Example from Manthey and Bry, CADE-9. [JRH]
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((lives(agatha) & lives(butler) & lives(charles) &
+      (killed(agatha, agatha) | killed(butler, agatha) |
+       killed(charles, agatha)) &
+      ! [X, Y] : (killed(X, Y) => (hates(X, Y) & ~ richer(X, Y))) &
+      ! [X] : (hates(agatha, X) => ~ hates(charles, X)) &
+      (hates(agatha, agatha) & hates(agatha, charles)) &
+      ! [X] : ((lives(X) & ~ richer(X, agatha)) => hates(butler, X)) &
+      ! [X] : (hates(agatha, X) => hates(butler, X)) &
+      ! [X] :
+        (~ hates(X, agatha) | ~ hates(X, butler) | ~ hates(X, charles))) =>
+     (killed(agatha, agatha) & ~ killed(butler, agatha) &
+      ~ killed(charles, agatha)))).

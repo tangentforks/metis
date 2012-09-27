@@ -1,0 +1,57 @@
+% -----------------------------------------------------------------------------
+% Name: MachineTransition_0
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z] : (X != Y | X != Z | Y = Z) & ! [X] : X = X &
+      ! [X, Y] :
+        (X = Y | ~ bool(apply(X, apply(apply('EXT_POINT', X), Y))) |
+         ~ bool(apply(Y, apply(apply('EXT_POINT', X), Y)))) &
+      ! [X, Y] :
+        (X = Y | bool(apply(X, apply(apply('EXT_POINT', X), Y))) |
+         bool(apply(Y, apply(apply('EXT_POINT', X), Y)))) &
+      ! [X, Y] :
+        (X = Y |
+         apply(X, apply(apply('EXT_POINT', X), Y)) !=
+         apply(Y, apply(apply('EXT_POINT', X), Y))) &
+      ! [X, Y] : (~ bool(X) | X != Y | bool(Y)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | apply(X, Z) = apply(Y, V)) &
+      ~ bool(apply(existential, apply('K', falsity))) &
+      bool(apply(existential, apply('K', truth))) &
+      ~ bool(apply(universal, apply('K', falsity))) &
+      bool(apply(universal, apply('K', truth))) & ~ bool(falsity) &
+      bool(truth) & 'Eq' = equality &
+      ! [X, Y, Z] :
+        (~ bool(apply(apply(apply('Next', X), Y), Z)) |
+         bool(apply(X,
+             apply(apply(pair, apply(apply(apply(gv940, X), Y), Z)),
+               Z)))) &
+      ! [X, Y, Z] :
+        (~ bool(apply(apply(apply('Next', X), Y), Z)) |
+         bool(apply(Y, apply(apply(apply(gv940, X), Y), Z)))) &
+      ! [X, Y, Z, V] :
+        (bool(apply(apply(apply('Next', X), Y), Z)) | ~ bool(apply(Y, V)) |
+         ~ bool(apply(X, apply(apply(pair, V), Z)))) &
+      ! [X, Y, Z] :
+        (~ bool(apply(apply(apply('Prev', X), Y), Z)) |
+         bool(apply(Y, apply(apply(apply(gv935, X), Y), Z)))) &
+      ! [X, Y, Z] :
+        (~ bool(apply(apply(apply('Prev', X), Y), Z)) |
+         bool(apply(X,
+             apply(apply(pair, Z),
+               apply(apply(apply(gv935, X), Y), Z))))) &
+      ! [X, Y, Z, V] :
+        (bool(apply(apply(apply('Prev', X), Y), Z)) |
+         ~ bool(apply(X, apply(apply(pair, Z), V))) |
+         ~ bool(apply(Y, V)))) =>
+     ((bool(apply(apply(apply('Next', gv914), apply('Eq', gv915)),
+           gv916)) &
+       ~
+         bool(apply(apply(apply('Prev', gv914), apply('Eq', gv916)),
+             gv915))) => $false))).

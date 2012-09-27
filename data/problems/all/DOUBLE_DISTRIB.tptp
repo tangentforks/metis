@@ -1,0 +1,22 @@
+% -----------------------------------------------------------------------------
+% Name: DOUBLE_DISTRIB
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% From a John Harrison post to hol-info on 2008-04-15
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z] :
+        multiply(multiply(X, Y), Z) =
+        multiply(multiply(X, Z), multiply(Y, Z)) &
+      ! [X, Y, Z] :
+        multiply(Z, multiply(X, Y)) =
+        multiply(multiply(Z, X), multiply(Z, Y))) =>
+     ! [A, B, C] :
+       multiply(multiply(A, B), multiply(C, A)) =
+       multiply(multiply(A, C), multiply(B, A)))).

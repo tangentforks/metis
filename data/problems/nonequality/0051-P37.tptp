@@ -1,0 +1,20 @@
+% -----------------------------------------------------------------------------
+% Name: P37
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [Z] :
+        ? [W] :
+          ! [X] :
+            ? [Y] :
+              ((p(X, Z) => p(Y, W)) & p(Y, Z) &
+               (p(Y, W) => ? [V] : q(V, W))) &
+      ! [X, Z] : (~ p(X, Z) => ? [Y] : q(Y, Z)) &
+      (? [X, Y] : q(X, Y) => ! [X] : r(X, X))) =>
+     ! [X] : ? [Y] : r(X, Y))).

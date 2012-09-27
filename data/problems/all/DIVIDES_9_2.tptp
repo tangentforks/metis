@@ -1,0 +1,16 @@
+% -----------------------------------------------------------------------------
+% Name: DIVIDES_9_2
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y] : multiply(X, Y) = multiply(Y, X) &
+      ! [X, Y, Z] :
+        multiply(multiply(X, Y), Z) = multiply(X, multiply(Y, Z)) &
+      ! [X, Y] : (divides(X, Y) <=> ? [Z] : multiply(Z, X) = Y)) =>
+     ! [X, Y, Z] : (divides(X, Y) => divides(X, multiply(Z, Y))))).

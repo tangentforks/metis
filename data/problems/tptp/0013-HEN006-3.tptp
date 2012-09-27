@@ -1,0 +1,27 @@
+% -----------------------------------------------------------------------------
+% Name: HEN006-3
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X] : X = X & ! [X, Y] : (X != Y | Y = X) &
+      ! [X, Y, Z] : (X != Y | Y != Z | X = Z) &
+      ! [X, Y] : (~ less_equal(X, Y) | divide(X, Y) = 0) &
+      ! [X, Y] : (divide(X, Y) != 0 | less_equal(X, Y)) &
+      ! [X, Y] : less_equal(divide(X, Y), X) &
+      ! [X, Y, Z] :
+        less_equal(divide(divide(X, Y), divide(Z, Y)),
+          divide(divide(X, Z), Y)) & ! [X] : less_equal(0, X) &
+      ! [X, Y] : (~ less_equal(X, Y) | ~ less_equal(Y, X) | X = Y) &
+      ! [X] : less_equal(X, 1) &
+      ! [X, Y, Z] : (X != Y | divide(X, Z) = divide(Y, Z)) &
+      ! [X, Y, Z] : (X != Y | divide(Z, X) = divide(Z, Y)) &
+      ! [X, Y, Z] : (X != Y | ~ less_equal(X, Z) | less_equal(Y, Z)) &
+      ! [X, Y, Z] : (X != Y | ~ less_equal(Z, X) | less_equal(Z, Y)) &
+      less_equal(divide(a, b), d)) =>
+     (~ less_equal(divide(a, d), b) => $false))).

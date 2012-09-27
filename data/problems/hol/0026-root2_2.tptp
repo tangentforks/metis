@@ -1,0 +1,61 @@
+% -----------------------------------------------------------------------------
+% Name: root2_2
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z, V] :
+        (X != Y | Z != V | multiply(X, Z) = multiply(Y, V)) &
+      ! [X, Y] : (X != Y | 'NUMERAL'(X) = 'NUMERAL'(Y)) &
+      ! [X, Y] : (X != Y | 'BIT2'(X) = 'BIT2'(Y)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | 'EXP'(X, Z) = 'EXP'(Y, V)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | less_than(Y, V) | ~ less_than(X, Z)) &
+      ! [X, Y] : (X != Y | 'EVEN'(Y) | ~ 'EVEN'(X)) &
+      ! [X, Y, Z] : (X != Y | X != Z | Y = Z) & ! [X] : X = X &
+      ! [X, Y] :
+        ('EXP'(multiply('NUMERAL'('BIT2'('ZERO')), X),
+           'NUMERAL'('BIT2'('ZERO'))) !=
+         multiply('NUMERAL'('BIT2'('ZERO')),
+           'EXP'(Y, 'NUMERAL'('BIT2'('ZERO')))) |
+         multiply('NUMERAL'('BIT2'('ZERO')),
+           'EXP'(X, 'NUMERAL'('BIT2'('ZERO')))) =
+         'EXP'(Y, 'NUMERAL'('BIT2'('ZERO')))) &
+      ! [X, Y] :
+        ('EXP'(multiply('NUMERAL'('BIT2'('ZERO')), X),
+           'NUMERAL'('BIT2'('ZERO'))) =
+         multiply('NUMERAL'('BIT2'('ZERO')),
+           'EXP'(Y, 'NUMERAL'('BIT2'('ZERO')))) |
+         multiply('NUMERAL'('BIT2'('ZERO')),
+           'EXP'(X, 'NUMERAL'('BIT2'('ZERO')))) !=
+         'EXP'(Y, 'NUMERAL'('BIT2'('ZERO')))) &
+      ! [X] :
+        (~ 'EVEN'(X) |
+         X = multiply('NUMERAL'('BIT2'('ZERO')), gv4671(X))) &
+      ! [X, Y] :
+        ('EVEN'(X) | X != multiply('NUMERAL'('BIT2'('ZERO')), Y)) &
+      ! [X, Y] : (~ 'EVEN'(multiply(X, Y)) | 'EVEN'(X) | 'EVEN'(Y)) &
+      ! [X, Y] : ('EVEN'(multiply(X, Y)) | ~ 'EVEN'(X)) &
+      ! [X, Y] : ('EVEN'(multiply(X, Y)) | ~ 'EVEN'(Y)) &
+      ! [X] : 'EXP'(X, 'NUMERAL'('BIT2'('ZERO'))) = multiply(X, X) &
+      ! [X] : 'EVEN'(multiply('NUMERAL'('BIT2'('ZERO')), X))) =>
+     (('EXP'(multiply('NUMERAL'('BIT2'('ZERO')), k),
+         'NUMERAL'('BIT2'('ZERO'))) =
+       multiply('NUMERAL'('BIT2'('ZERO')),
+         'EXP'(n, 'NUMERAL'('BIT2'('ZERO')))) &
+       ! [X, Y] :
+         ('EXP'(X, 'NUMERAL'('BIT2'('ZERO'))) !=
+          multiply('NUMERAL'('BIT2'('ZERO')),
+            'EXP'(Y, 'NUMERAL'('BIT2'('ZERO')))) | X = 0 |
+          ~ less_than(X, multiply('NUMERAL'('BIT2'('ZERO')), k))) &
+       ! [X, Y] :
+         ('EXP'(X, 'NUMERAL'('BIT2'('ZERO'))) !=
+          multiply('NUMERAL'('BIT2'('ZERO')),
+            'EXP'(Y, 'NUMERAL'('BIT2'('ZERO')))) | Y = 0 |
+          ~ less_than(X, multiply('NUMERAL'('BIT2'('ZERO')), k))) &
+       ! [X] : n != multiply('NUMERAL'('BIT2'('ZERO')), X)) => $false))).

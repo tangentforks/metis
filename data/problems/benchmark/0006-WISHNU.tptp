@@ -1,0 +1,15 @@
+% -----------------------------------------------------------------------------
+% Name: WISHNU
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% Wishnu Prasetya's example. [JRH]
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    (? [X] : (X = f(g(X)) & ! [X0] : (X0 = f(g(X0)) => X = X0)) <=>
+     ? [Y] : (Y = g(f(Y)) & ! [Y0] : (Y0 = g(f(Y0)) => Y = Y0)))).

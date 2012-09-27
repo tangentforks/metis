@@ -1,0 +1,37 @@
+% -----------------------------------------------------------------------------
+% Name: LAT005-3
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% SAM's lemma
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X] : X = X & ! [X, Y] : (X != Y | Y = X) &
+      ! [X, Y, Z] : (X != Y | Y != Z | X = Z) & ! [X] : meet(X, X) = X &
+      ! [X] : join(X, X) = X & ! [X, Y] : meet(X, join(X, Y)) = X &
+      ! [X, Y] : join(X, meet(X, Y)) = X &
+      ! [X, Y] : meet(X, Y) = meet(Y, X) &
+      ! [X, Y] : join(X, Y) = join(Y, X) &
+      ! [X, Y, Z] : meet(meet(X, Y), Z) = meet(X, meet(Y, Z)) &
+      ! [X, Y, Z] : join(join(X, Y), Z) = join(X, join(Y, Z)) &
+      ! [X, Y, Z] : (X != Y | join(X, Z) = join(Y, Z)) &
+      ! [X, Y, Z] : (X != Y | join(Z, X) = join(Z, Y)) &
+      ! [X, Y, Z] : (X != Y | meet(X, Z) = meet(Y, Z)) &
+      ! [X, Y, Z] : (X != Y | meet(Z, X) = meet(Z, Y)) &
+      ! [X] : meet(X, 0) = 0 & ! [X] : join(X, 0) = X &
+      ! [X] : meet(X, 1) = X & ! [X] : join(X, 1) = 1 &
+      ! [X, Y, Z] :
+        (meet(X, Y) != X | meet(Y, join(X, Z)) = join(X, meet(Z, Y))) &
+      ! [X, Y] : (~ complement(X, Y) | meet(X, Y) = 0) &
+      ! [X, Y] : (~ complement(X, Y) | join(X, Y) = 1) &
+      ! [X, Y] : (meet(X, Y) != 0 | join(X, Y) != 1 | complement(X, Y)) &
+      ! [X, Y, Z] : (X != Y | ~ complement(X, Z) | complement(Y, Z)) &
+      ! [X, Y, Z] : (X != Y | ~ complement(Z, X) | complement(Z, Y)) &
+      complement(r1, join(a, b)) & complement(r2, meet(a, b))) =>
+     (r1 != meet(join(r1, meet(r2, b)), join(r1, meet(r2, a))) =>
+      $false))).

@@ -1,0 +1,13 @@
+% -----------------------------------------------------------------------------
+% Name: TOBIAS_NIPKOW
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y] : (p(X, Y) => f(X) = f(Y)) & ! [X] : f(g(X)) = f(X) &
+      p(g(a), g(b))) => f(a) = f(b))).

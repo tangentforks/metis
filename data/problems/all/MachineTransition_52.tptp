@@ -1,0 +1,119 @@
+% -----------------------------------------------------------------------------
+% Name: MachineTransition_52
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z] : (X != Y | X != Z | Y = Z) & ! [X] : X = X &
+      ! [X, Y] :
+        (X = Y | ~ bool(apply(X, apply(apply('EXT_POINT', X), Y))) |
+         ~ bool(apply(Y, apply(apply('EXT_POINT', X), Y)))) &
+      ! [X, Y] :
+        (X = Y | bool(apply(X, apply(apply('EXT_POINT', X), Y))) |
+         bool(apply(Y, apply(apply('EXT_POINT', X), Y)))) &
+      ! [X, Y] :
+        (X = Y |
+         apply(X, apply(apply('EXT_POINT', X), Y)) !=
+         apply(Y, apply(apply('EXT_POINT', X), Y))) &
+      ! [X, Y] : (~ bool(X) | X != Y | bool(Y)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | apply(X, Z) = apply(Y, V)) &
+      ~ bool(apply(existential, apply('K', falsity))) &
+      bool(apply(existential, apply('K', truth))) &
+      ~ bool(apply(universal, apply('K', falsity))) &
+      bool(apply(universal, apply('K', truth))) & ~ bool(falsity) &
+      bool(truth) &
+      ! [X, Y, Z] :
+        (bool(apply(apply('<=', apply(apply(apply(gv7028, X), Y), Z)),
+             apply(apply(add, X),
+               apply('NUMERAL', apply('BIT1', 'ZERO'))))) |
+         apply(Z,
+           apply(apply(add, X), apply('NUMERAL', apply('BIT1', 'ZERO')))) =
+         apply(Y,
+           apply(apply(add, X),
+             apply('NUMERAL', apply('BIT1', 'ZERO'))))) &
+      ! [X, Y, Z] :
+        (apply(X, apply(apply(apply(gv7028, Y), Z), X)) !=
+         apply(Z, apply(apply(apply(gv7028, Y), Z), X)) |
+         apply(X,
+           apply(apply(add, Y), apply('NUMERAL', apply('BIT1', 'ZERO')))) =
+         apply(Z,
+           apply(apply(add, Y),
+             apply('NUMERAL', apply('BIT1', 'ZERO'))))) &
+      ! [X, Y, Z, V] :
+        (apply(X, apply(apply(apply(gv7028, Y), Z), X)) !=
+         apply(Z, apply(apply(apply(gv7028, Y), Z), X)) |
+         apply(X, V) = apply(Z, V) | ~ bool(apply(apply('<=', V), Y))) &
+      ! [X, Y, Z, V] :
+        (bool(apply(apply('<=', apply(apply(apply(gv7028, X), Y), Z)),
+             apply(apply(add, X),
+               apply('NUMERAL', apply('BIT1', 'ZERO'))))) |
+         apply(Z, V) = apply(Y, V) | ~ bool(apply(apply('<=', V), X))) &
+      ! [X, Y, Z, V] :
+        (~
+           bool(apply(apply('<=', X),
+               apply(apply(add, Y),
+                 apply('NUMERAL', apply('BIT1', 'ZERO'))))) |
+         apply(Z, X) = apply(V, X) |
+         apply(Z, apply(apply(apply(gv7027, Y), V), Z)) !=
+         apply(V, apply(apply(apply(gv7027, Y), V), Z)) |
+         apply(Z,
+           apply(apply(add, Y),
+             apply('NUMERAL', apply('BIT1', 'ZERO')))) !=
+         apply(V,
+           apply(apply(add, Y),
+             apply('NUMERAL', apply('BIT1', 'ZERO'))))) &
+      ! [X, Y, Z, V] :
+        (~
+           bool(apply(apply('<=', X),
+               apply(apply(add, Y),
+                 apply('NUMERAL', apply('BIT1', 'ZERO'))))) |
+         apply(Z, X) = apply(V, X) |
+         bool(apply(apply('<=', apply(apply(apply(gv7027, Y), V), Z)),
+             Y)) |
+         apply(Z,
+           apply(apply(add, Y),
+             apply('NUMERAL', apply('BIT1', 'ZERO')))) !=
+         apply(V,
+           apply(apply(add, Y),
+             apply('NUMERAL', apply('BIT1', 'ZERO')))))) =>
+     (((bool(apply(apply(apply('FinPath', apply(apply(pair, 'R'), s)), f2),
+            n)) |
+        ~
+          bool(apply(apply(apply('FinPath', apply(apply(pair, 'R'), s)),
+                f1), n)) | apply(f1, gv7034) != apply(f2, gv7034)) &
+       (~
+          bool(apply(apply(apply('FinPath', apply(apply(pair, 'R'), s)),
+                f2), n)) |
+        bool(apply(apply(apply('FinPath', apply(apply(pair, 'R'), s)), f1),
+            n)) | apply(f1, gv7034) != apply(f2, gv7034)) &
+       (~
+          bool(apply(apply(apply('FinPath', apply(apply(pair, 'R'), s)),
+                f2), n)) |
+        bool(apply(apply(apply('FinPath', apply(apply(pair, 'R'), s)), f1),
+            n)) | bool(apply(apply('<=', gv7034), n))) &
+       (bool(apply(apply(apply('FinPath', apply(apply(pair, 'R'), s)), f2),
+            n)) |
+        ~
+          bool(apply(apply(apply('FinPath', apply(apply(pair, 'R'), s)),
+                f1), n)) | bool(apply(apply('<=', gv7034), n))) &
+       ! [X] :
+         (apply(f1, X) = apply(f2, X) |
+          ~
+            bool(apply(apply('<=', X),
+                apply(apply(add, n),
+                  apply('NUMERAL', apply('BIT1', 'ZERO')))))) &
+       bool(apply(apply(apply('FinPath', apply(apply(pair, 'R'), s)), f2),
+           n)) &
+       bool(apply('R',
+           apply(apply(pair, apply(f2, n)),
+             apply(f2,
+               apply(apply(add, n),
+                 apply('NUMERAL', apply('BIT1', 'ZERO'))))))) &
+       ~
+         bool(apply(apply(apply('FinPath', apply(apply(pair, 'R'), s)),
+               f1), n))) => $false))).

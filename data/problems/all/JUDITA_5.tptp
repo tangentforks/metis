@@ -1,0 +1,12 @@
+% -----------------------------------------------------------------------------
+% Name: JUDITA_5
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((p(a) & p(b) & a != b & ~ p(c) & ! [X] : (X = a | X = d)) => $false)).

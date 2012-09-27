@@ -1,0 +1,29 @@
+% -----------------------------------------------------------------------------
+% Name: GRP104-1
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X] : X = X & ! [X, Y] : (X != Y | Y = X) &
+      ! [X, Y, Z] : (X != Y | Y != Z | X = Z) &
+      ! [X, Y, Z] :
+        double_divide(X,
+          inverse(double_divide(inverse(double_divide(double_divide(X, Y),
+                  inverse(Z))), Y))) = Z &
+      ! [X, Y] : multiply(X, Y) = inverse(double_divide(Y, X)) &
+      ! [X, Y] : (X != Y | inverse(X) = inverse(Y)) &
+      ! [X, Y, Z] : (X != Y | multiply(X, Z) = multiply(Y, Z)) &
+      ! [X, Y, Z] : (X != Y | multiply(Z, X) = multiply(Z, Y)) &
+      ! [X, Y, Z] : (X != Y | double_divide(X, Z) = double_divide(Y, Z)) &
+      ! [X, Y, Z] :
+        (X != Y | double_divide(Z, X) = double_divide(Z, Y))) =>
+     (! [X, Y] :
+        (multiply(inverse(a1), a1) != multiply(inverse(b1), b1) |
+         multiply(multiply(inverse(b2), b2), a2) != a2 |
+         multiply(multiply(a3, b3), c3) != multiply(a3, multiply(b3, c3)) |
+         multiply(X, Y) != multiply(Y, X)) => $false))).

@@ -1,0 +1,16 @@
+% -----------------------------------------------------------------------------
+% Name: EWD_1
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% A simple example (see EWD1266a and the application to Morley's
+% theorem). [JRH]
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X] : (f(X) => g(X)) & ? [X] : f(X) &
+      ! [X, Y] : ((g(X) & g(Y)) => X = Y)) => ! [Y] : (g(Y) => f(Y)))).

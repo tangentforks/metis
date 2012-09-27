@@ -1,0 +1,79 @@
+% -----------------------------------------------------------------------------
+% Name: Omega_71
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z, V] : (X != Y | Z != V | int_mul(X, Z) = int_mul(Y, V)) &
+      ! [X, Y] : (X != Y | int_of_num(X) = int_of_num(Y)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | multiply(X, Z) = multiply(Y, V)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | int_add(X, Z) = int_add(Y, V)) &
+      ! [X, Y] : (X != Y | 'NUMERAL'(X) = 'NUMERAL'(Y)) &
+      ! [X, Y] : (X != Y | 'BIT1'(X) = 'BIT1'(Y)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | pair(X, Z) = pair(Y, V)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | evallower(Y, V) | ~ evallower(X, Z)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | less_than(Y, V) | ~ less_than(X, Z)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | rshadow_row(V, Y) | ~ rshadow_row(Z, X)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | dark_shadow_cond_row(V, Y) |
+         ~ dark_shadow_cond_row(Z, X)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | int_le(Y, V) | ~ int_le(X, Z)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | 'EVERY'(Y, V) | ~ 'EVERY'(X, Z)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | int_lt(Y, V) | ~ int_lt(X, Z)) &
+      ! [X, Y, Z] : (X != Y | X != Z | Y = Z) & ! [X] : X = X &
+      ! [X, Y] : int_mul(X, Y) = int_mul(Y, X) &
+      ! [X, Y, Z] : int_mul(X, int_mul(Y, Z)) = int_mul(int_mul(X, Y), Z) &
+      ! [X, Y, Z] :
+        (int_le(X, Y) |
+         ~ int_le(int_mul(int_of_num(Z), X), int_mul(int_of_num(Z), Y)) |
+         ~ less_than(0, Z)) &
+      ! [X, Y, Z] :
+        (~ int_le(X, Y) |
+         int_le(int_mul(int_of_num(Z), X), int_mul(int_of_num(Z), Y)) |
+         ~ less_than(0, Z))) =>
+     ((! [X, Y, Z] :
+         (evallower(gv6249(X, Y, Z), lowers) | ~ less_than(0, Y) |
+          ~ evallower(X, lowers) | ~ rshadow_row(pair(Y, Z), lowers) |
+          ~ dark_shadow_cond_row(pair(Y, Z), lowers)) &
+       ! [X, Y, Z] :
+         (int_le(int_mul(int_of_num(X), gv6249(Y, X, Z)), Z) |
+          ~ less_than(0, X) | ~ evallower(Y, lowers) |
+          ~ rshadow_row(pair(X, Z), lowers) |
+          ~ dark_shadow_cond_row(pair(X, Z), lowers)) & less_than(0, c) &
+       int_le('R', int_mul(int_of_num(d), x)) & evallower(x, lowers) &
+       less_than(0, d) & 'EVERY'(fst_nzero, lowers) &
+       int_le(int_mul(int_of_num(c), 'R'), int_mul(int_of_num(d), 'L')) &
+       rshadow_row(pair(c, 'L'), lowers) &
+       dark_shadow_cond_row(pair(c, 'L'), lowers) &
+       ! [X] :
+         (~
+            int_lt(int_mul(int_of_num(d), 'L'),
+              int_mul(int_of_num(multiply(c, d)),
+                int_add(X, int_of_num('NUMERAL'('BIT1'('ZERO')))))) |
+          ~
+            int_lt(int_mul(int_of_num(multiply(c, d)), X),
+              int_mul(int_of_num(c), 'R'))) &
+       int_le(int_mul(int_of_num(c), y), 'L') & evallower(y, lowers) &
+       int_le(int_mul(int_of_num(multiply(c, d)), y),
+         int_mul(int_of_num(d), 'L')) &
+       int_le(int_mul(int_of_num(c), 'R'),
+         int_mul(int_of_num(multiply(c, d)), x)) &
+       int_lt(int_mul(int_of_num(multiply(c, d)), y),
+         int_mul(int_of_num(c), 'R')) & less_than(0, multiply(c, d)) &
+       int_le(int_mul(int_of_num(c), 'R'),
+         int_mul(int_of_num(multiply(c, d)), j)) &
+       int_le(int_mul(int_of_num(multiply(c, d)), j),
+         int_mul(int_of_num(d), 'L')) &
+       int_le(int_mul(int_mul(int_of_num(c), int_of_num(d)), j),
+         int_mul(int_of_num(d), 'L')) &
+       ~ int_le(int_mul(int_of_num(c), j), 'L')) => $false))).

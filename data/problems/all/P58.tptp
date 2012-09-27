@@ -1,0 +1,16 @@
+% -----------------------------------------------------------------------------
+% Name: P58
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% See info-hol 1498 [JRH]
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    (! [X] :
+       ? [V, W] :
+         ! [Y, Z] : ((p(X) & q(Y)) => ((p(V) | r(W)) & (r(Z) => q(V)))))).

@@ -1,0 +1,21 @@
+% -----------------------------------------------------------------------------
+% Name: pred_set_1
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% Small problem that's hard for ordered resolution
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z] : (~ less_equal(X, Y) | p(Z, Y) | ~ p(Z, X)) &
+      ! [X, Y] : (less_equal(X, Y) | ~ p(a(X, Y), Y)) &
+      ! [X, Y] : (less_equal(X, Y) | p(a(X, Y), X)) &
+      ! [X, Y, Z] : (~ p(X, multiply(Y, Z)) | p(X, Z)) &
+      ! [X, Y, Z] : (~ p(X, multiply(Y, Z)) | p(X, Y)) &
+      ! [X, Y, Z] : (p(X, multiply(Y, Z)) | ~ p(X, Y) | ~ p(X, Z))) =>
+     ((less_equal(b, c) & less_equal(b, d) &
+       ~ less_equal(b, multiply(c, d))) => $false))).

@@ -1,0 +1,20 @@
+% -----------------------------------------------------------------------------
+% Name: GRP010-4
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X] : X = X & ! [X, Y] : (X != Y | Y = X) &
+      ! [X, Y, Z] : (X != Y | Y != Z | X = Z) &
+      ! [X, Y] : (X != Y | i(X) = i(Y)) &
+      ! [X, Y, Z] : (X != Y | multiply(X, Z) = multiply(Y, Z)) &
+      ! [X, Y, Z] : (X != Y | multiply(Z, X) = multiply(Z, Y)) &
+      ! [X, Y, Z] :
+        multiply(multiply(X, Y), Z) = multiply(X, multiply(Y, Z)) &
+      ! [X] : multiply(1, X) = X & ! [X] : multiply(i(X), X) = 1 &
+      multiply(c, b) = 1) => (multiply(b, c) != 1 => $false))).

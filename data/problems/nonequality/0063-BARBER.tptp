@@ -1,0 +1,15 @@
+% -----------------------------------------------------------------------------
+% Name: BARBER
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% One resolution of the barber paradox
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    (! [X] : (man(X) => (shaves(barber, X) <=> ~ shaves(X, X))) =>
+     ~ man(barber))).

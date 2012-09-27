@@ -1,0 +1,15 @@
+% -----------------------------------------------------------------------------
+% Name: UNSKOLEMIZED_MELHAM
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% The Melham problem after an inverse skolemization step.
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    (! [X, Y] : (g(X) = g(Y) => f(X) = f(Y)) =>
+     ! [Y] : ? [W] : ! [X] : (Y = g(X) => W = f(X)))).

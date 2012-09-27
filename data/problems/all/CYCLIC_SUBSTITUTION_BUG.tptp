@@ -1,0 +1,11 @@
+% -----------------------------------------------------------------------------
+% Name: CYCLIC_SUBSTITUTION_BUG
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture, (! [Y] : (! [X] : Y = g(c(X)) => ? [Z] : Y = g(Z)))).

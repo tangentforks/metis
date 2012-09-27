@@ -1,0 +1,35 @@
+% -----------------------------------------------------------------------------
+% Name: GRP128-4.003
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y] :
+        (~ elt(X) | ~ elt(Y) | product(e_1, X, Y) | product(e_2, X, Y) |
+         product(e_3, X, Y)) &
+      ! [X, Y] :
+        (~ elt(X) | ~ elt(Y) | product(X, e_1, Y) | product(X, e_2, Y) |
+         product(X, e_3, Y)) & elt(e_1) & elt(e_2) & elt(e_3) &
+      ~ equalish(e_1, e_2) & ~ equalish(e_1, e_3) & ~ equalish(e_2, e_1) &
+      ~ equalish(e_2, e_3) & ~ equalish(e_3, e_1) & ~ equalish(e_3, e_2) &
+      ! [X, Y] :
+        (~ elt(X) | ~ elt(Y) | product(X, Y, e_1) | product(X, Y, e_2) |
+         product(X, Y, e_3)) &
+      ! [X, Y, Z, V] :
+        (~ product(X, Y, Z) | ~ product(X, Y, V) | equalish(Z, V)) &
+      ! [X, Y, Z, V] :
+        (~ product(X, Y, Z) | ~ product(X, V, Z) | equalish(Y, V)) &
+      ! [X, Y, Z, V] :
+        (~ product(X, Y, Z) | ~ product(V, Y, Z) | equalish(X, V))) =>
+     ((! [X, Y, Z, V] :
+         (product(X, Y, Z) | ~ product(X, Z, V) | ~ product(Z, Y, V)) &
+       ! [X, Y, Z, V] :
+         (product(X, Y, Z) | ~ product(V, X, Z) | ~ product(V, Y, X)) &
+       ! [X, Y, Z, V] :
+         (~ product(X, Y, Z) | ~ product(Z, Y, V) | product(X, Z, V))) =>
+      $false))).

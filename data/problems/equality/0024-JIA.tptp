@@ -1,0 +1,18 @@
+% -----------------------------------------------------------------------------
+% Name: JIA
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% Needs only the K combinator
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y] : apply(apply(k, X), Y) = X & ! [V] : 'P'(apply(V, a), a) &
+      ! [W] : 'Q'(apply(W, b), b)) =>
+     ! [Z] :
+       ? [X, Y] :
+         ('P'(apply(apply(Z, X), Y), X) & 'Q'(apply(apply(Z, X), Y), Y)))).

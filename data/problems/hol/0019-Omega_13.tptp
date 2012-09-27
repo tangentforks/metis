@@ -1,0 +1,37 @@
+% -----------------------------------------------------------------------------
+% Name: Omega_13
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z, V] : (X != Y | Z != V | int_mul(X, Z) = int_mul(Y, V)) &
+      ! [X, Y] : (X != Y | int_of_num(X) = int_of_num(Y)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | evalupper(Y, V) | ~ evalupper(X, Z)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | int_lt(Y, V) | ~ int_lt(X, Z)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | int_le(Y, V) | ~ int_le(X, Z)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | less_than(Y, V) | ~ less_than(X, Z)) &
+      ! [X, Y, Z] : (X != Y | X != Z | Y = Z) & ! [X] : X = X &
+      ! [X, Y] : (~ int_le(X, Y) | int_lt(X, Y) | X = Y) &
+      ! [X, Y] : (int_le(X, Y) | ~ int_lt(X, Y)) &
+      ! [X, Y] : (int_le(X, Y) | X != Y) &
+      ! [X, Y, Z] :
+        (int_lt(X, Y) |
+         ~ int_lt(int_mul(int_of_num(Z), X), int_mul(int_of_num(Z), Y)) |
+         ~ less_than(0, Z)) &
+      ! [X, Y, Z] :
+        (~ int_lt(X, Y) |
+         int_lt(int_mul(int_of_num(Z), X), int_mul(int_of_num(Z), Y)) |
+         ~ less_than(0, Z)) &
+      ! [X, Y, Z] : (int_lt(X, Y) | ~ int_le(X, Z) | ~ int_lt(Z, Y))) =>
+     ((! [X, Y] :
+         (evalupper(X, uppers) | ~ evalupper(Y, uppers) | ~ int_lt(X, Y)) &
+       int_le(int_mul(int_of_num(p_1), x), p_2) & evalupper(x, uppers) &
+       int_lt(y, x) & less_than(0, p_1) &
+       ~ int_le(int_mul(int_of_num(p_1), y), p_2)) => $false))).

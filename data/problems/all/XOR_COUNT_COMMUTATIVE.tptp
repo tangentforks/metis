@@ -1,0 +1,23 @@
+% -----------------------------------------------------------------------------
+% Name: XOR_COUNT_COMMUTATIVE
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% The xor literal counting function in Normalize is commutative.
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y] : add(X, Y) = add(Y, X) &
+      ! [X, Y, Z] : add(X, add(Y, Z)) = add(add(X, Y), Z) &
+      ! [X, Y] : multiply(X, Y) = multiply(Y, X) &
+      ! [X, Y, Z] :
+        multiply(X, multiply(Y, Z)) = multiply(multiply(X, Y), Z) &
+      pl = add(multiply(p1, p2), multiply(n1, n2)) &
+      nl = add(multiply(p1, n2), multiply(n1, p2)) &
+      pr = add(multiply(p2, p1), multiply(n2, n1)) &
+      nr = add(multiply(p2, n1), multiply(n2, p1))) =>
+     (pl = pr & nl = nr))).

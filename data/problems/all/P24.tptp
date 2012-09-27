@@ -1,0 +1,14 @@
+% -----------------------------------------------------------------------------
+% Name: P24
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((~ ? [X] : (u(X) & q(X)) & ! [X] : (p(X) => (q(X) | r(X))) &
+      ~ ? [X] : (p(X) => ? [X] : q(X)) &
+      ! [X] : ((q(X) & r(X)) => u(X))) => ? [X] : (p(X) & r(X)))).

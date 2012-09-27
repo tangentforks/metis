@@ -1,0 +1,38 @@
+% -----------------------------------------------------------------------------
+% Name: gcd_21
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z, V] : (X != Y | Z != V | add(X, Z) = add(Y, V)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | multiply(X, Z) = multiply(Y, V)) &
+      ! [X, Y] : (X != Y | 'NUMERAL'(X) = 'NUMERAL'(Y)) &
+      ! [X, Y] : (X != Y | 'BIT1'(X) = 'BIT1'(Y)) &
+      ! [X, Y] : (X != Y | 'SUC'(X) = 'SUC'(Y)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | divides(Y, V) | ~ divides(X, Z)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | less_equal(Y, V) | ~ less_equal(X, Z)) &
+      ! [X, Y, Z] : (X != Y | X != Z | Y = Z) & ! [X] : X = X &
+      ! [X, Y, Z] :
+        multiply(X, add(Y, Z)) = add(multiply(X, Y), multiply(X, Z)) &
+      ! [X, Y] : add(X, 'SUC'(Y)) = 'SUC'(add(X, Y)) &
+      ! [X, Y] : add('SUC'(X), Y) = 'SUC'(add(X, Y)) &
+      ! [X] : add(X, 0) = X & ! [X] : add(0, X) = X &
+      ! [X, Y] : multiply(X, 'SUC'(Y)) = add(X, multiply(X, Y)) &
+      ! [X, Y] : multiply('SUC'(X), Y) = add(multiply(X, Y), Y) &
+      ! [X] : multiply(X, 'NUMERAL'('BIT1'('ZERO'))) = X &
+      ! [X] : multiply('NUMERAL'('BIT1'('ZERO')), X) = X &
+      ! [X] : multiply(X, 0) = 0 & ! [X] : multiply(0, X) = 0 &
+      ! [X, Y, Z] : add(X, add(Y, Z)) = add(add(X, Y), Z) &
+      ! [X, Y, Z] :
+        (divides(X, Y) | ~ divides(X, Z) | ~ divides(X, add(Z, Y)))) =>
+     ((divides(c, multiply(d, 'SUC'(y))) & less_equal(y, add(y, z)) &
+       divides(c, multiply(d, 'SUC'(add(y, z)))) &
+       ~ divides(c, multiply(d, z))) => $false))).

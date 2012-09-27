@@ -1,0 +1,13 @@
+% -----------------------------------------------------------------------------
+% Name: SELF_REWRITE
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((f(g(h(c))) = h(c) & g(h(c)) = b & f(b) = a & ! [X] : a != h(X)) =>
+     $false)).

@@ -1,0 +1,40 @@
+% -----------------------------------------------------------------------------
+% Name: Coder_4_0
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y] :
+        (X = Y | ~ bool(apply(X, apply(apply('EXT_POINT', X), Y))) |
+         ~ bool(apply(Y, apply(apply('EXT_POINT', X), Y)))) &
+      ! [X, Y] :
+        (X = Y | bool(apply(X, apply(apply('EXT_POINT', X), Y))) |
+         bool(apply(Y, apply(apply('EXT_POINT', X), Y)))) &
+      ! [X, Y] :
+        (X = Y |
+         apply(X, apply(apply('EXT_POINT', X), Y)) !=
+         apply(Y, apply(apply('EXT_POINT', X), Y))) &
+      ! [X, Y] : (~ bool(X) | X != Y | bool(Y)) &
+      ~ bool(apply(existential, apply('K', falsity))) &
+      bool(apply(existential, apply('K', truth))) &
+      ~ bool(apply(universal, apply('K', falsity))) &
+      bool(apply(universal, apply('K', truth))) & ~ bool(falsity) &
+      bool(truth) &
+      ! [X, Y, Z] :
+        (apply(apply('APPEND', X), Y) != apply(apply('APPEND', Z), Y) |
+         X = Z) &
+      ! [X, Y, Z] :
+        (apply(apply('APPEND', X), Y) != apply(apply('APPEND', X), Z) |
+         Y = Z)) =>
+     ((bool(apply(apply(wf_encoder, p), e)) &
+       ! [X] : (apply(e, X) = apply(f, X) | ~ bool(apply(p, X))) &
+       bool(apply(apply(wf_encoder, p), f)) & bool(apply(p, q)) &
+       bool(apply(p, 'q\'')) &
+       apply(apply('APPEND', apply(f, q)), r) =
+       apply(apply('APPEND', apply(f, 'q\'')), 'r\'') & q = 'q\'' &
+       'r\'' != r) => $false))).

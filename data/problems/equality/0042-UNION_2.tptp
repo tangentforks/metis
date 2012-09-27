@@ -1,0 +1,16 @@
+% -----------------------------------------------------------------------------
+% Name: UNION_2
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y] : (subset(X, Y) => (subset(Y, X) => X = Y)) &
+      ! [X, Y] : (! [Z] : (member(Z, X) => member(Z, Y)) => subset(X, Y)) &
+      ! [X, Y, Z] :
+        (member(Z, add(X, Y)) <=> (member(Z, X) | member(Z, Y)))) =>
+     ! [X, Y] : add(X, Y) = add(Y, X))).

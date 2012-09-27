@@ -1,0 +1,25 @@
+% -----------------------------------------------------------------------------
+% Name: GEO002-4
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z, V] :
+        (~ between(X, Y, Z) | ~ between(Y, V, Z) | between(X, Y, V)) &
+      ! [X, Y, Z] : (~ equidistant(X, Y, Z, Z) | equalish(X, Y)) &
+      ! [X, Y, Z, V, W] :
+        (~ between(X, Y, Z) | ~ between(V, Z, W) |
+         between(X, outer_pasch(Y, X, V, W, Z), V)) &
+      ! [X, Y, Z, V, W] :
+        (~ between(X, Y, Z) | ~ between(V, Z, W) |
+         between(W, Y, outer_pasch(Y, X, V, W, Z))) &
+      ! [X, Y, Z, V] : between(X, Y, extension(X, Y, Z, V)) &
+      ! [X, Y, Z, V] : equidistant(X, extension(Y, X, Z, V), Z, V) &
+      ! [X, Y, Z, V] :
+        (~ equalish(X, Y) | ~ between(Z, V, X) | between(Z, V, Y))) =>
+     (~ between(a, a, b) => $false))).

@@ -1,0 +1,18 @@
+% -----------------------------------------------------------------------------
+% Name: LDA007-3
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X] : X = X & ! [X, Y] : (X != Y | Y = X) &
+      ! [X, Y, Z] : (X != Y | Y != Z | X = Z) &
+      ! [X, Y, Z] : f(X, f(Y, Z)) = f(f(X, Y), f(X, Z)) &
+      ! [X, Y, Z] : (X != Y | f(X, Z) = f(Y, Z)) &
+      ! [X, Y, Z] : (X != Y | f(Z, X) = f(Z, Y)) & tt = f(t, t) &
+      ts = f(t, s) & tt_ts = f(tt, ts) & tk = f(t, k) & tsk = f(ts, k)) =>
+     (f(t, tsk) != f(tt_ts, tk) => $false))).

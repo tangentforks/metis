@@ -1,0 +1,13 @@
+% -----------------------------------------------------------------------------
+% Name: SPLIT_NOT_IFF
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% A way to split a goal that looks like ~(p <=> q)
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture, (~ (p <=> q) <=> ((p => ~ q) & (q => ~ p)))).

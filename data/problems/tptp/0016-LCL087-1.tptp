@@ -1,0 +1,18 @@
+% -----------------------------------------------------------------------------
+% Name: LCL087-1
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% Solved quickly by resolution when NOT tracking term-ordering constraints.
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y] : (~ p(implies(X, Y)) | ~ p(X) | p(Y)) &
+      ! [X, Y, Z, V, W] :
+        p(implies(implies(implies(X, Y), implies(Z, V)),
+            implies(W, implies(implies(V, X), implies(Z, X)))))) =>
+     (~ p(implies(a, implies(b, a))) => $false))).

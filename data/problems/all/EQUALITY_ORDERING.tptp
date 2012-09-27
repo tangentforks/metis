@@ -1,0 +1,19 @@
+% -----------------------------------------------------------------------------
+% Name: EQUALITY_ORDERING
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% Positive resolution saturates if equality literals are
+% ordered like other literals, instead of considering their
+% left and right sides.
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((p(a) & q(a) & q(b) & r(b) & (~ p(c) | c = a) & (~ r(c) | c = b) &
+      ! [X] : (~ q(X) | p(X) | r(X)) & (~ p(c) | ~ q(c)) &
+      (~ q(c) | ~ r(c)) & (c = b | p(c) | q(c)) &
+      (~ p(b) | c = a | q(c))) => $false)).

@@ -1,0 +1,51 @@
+% -----------------------------------------------------------------------------
+% Name: TermRewriting_13
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((~ bool(apply(existential, apply('K', falsity))) &
+      bool(apply(existential, apply('K', truth))) &
+      ~ bool(apply(universal, apply('K', falsity))) &
+      bool(apply(universal, apply('K', truth))) & ~ bool(falsity) &
+      bool(truth) &
+      ! [X, Y, Z, V] :
+        (~ bool(apply(apply(apply('RTC', X), Y), Z)) |
+         bool(apply(apply(apply('RTC', X), V), Z)) |
+         ~ bool(apply(apply(apply('RTC', X), V), Y)))) =>
+     ((bool(apply('WCR', 'R')) & bool(apply('SN', 'R')) &
+       ! [X, Y, Z] :
+         (~ bool(apply(apply(apply('RTC', 'R'), X), Y)) |
+          ~ bool(apply(apply(apply('RTC', 'R'), X), Z)) |
+          bool(apply(apply(apply('RTC', 'R'), Y),
+              apply(apply(apply(gv1300, X), Z), Y))) |
+          ~ bool(apply(apply(apply('TC', 'R'), x), X))) &
+       ! [X, Y, Z] :
+         (~ bool(apply(apply(apply('RTC', 'R'), X), Y)) |
+          ~ bool(apply(apply(apply('RTC', 'R'), X), Z)) |
+          bool(apply(apply(apply('RTC', 'R'), Z),
+              apply(apply(apply(gv1300, X), Z), Y))) |
+          ~ bool(apply(apply(apply('TC', 'R'), x), X))) &
+       bool(apply(apply(apply('RTC', 'R'), x), y)) &
+       bool(apply(apply(apply('RTC', 'R'), x), z)) &
+       bool(apply(apply('R', x), y1)) &
+       bool(apply(apply(apply('RTC', 'R'), y1), y)) &
+       bool(apply(apply('R', x), z1)) &
+       bool(apply(apply(apply('RTC', 'R'), z1), z)) &
+       bool(apply(apply(apply('RTC', 'R'), y1), x0)) &
+       bool(apply(apply(apply('RTC', 'R'), z1), x0)) &
+       bool(apply(apply(apply('TC', 'R'), x), y1)) &
+       bool(apply(apply(apply('TC', 'R'), x), z1)) &
+       bool(apply(apply(apply('RTC', 'R'), y), y2)) &
+       bool(apply(apply(apply('RTC', 'R'), x0), y2)) &
+       bool(apply(apply(apply('RTC', 'R'), z), z2)) &
+       bool(apply(apply(apply('RTC', 'R'), x0), z2)) &
+       bool(apply(apply(apply('TC', 'R'), x), x0)) &
+       ! [X] :
+         (~ bool(apply(apply(apply('RTC', 'R'), y), X)) |
+          ~ bool(apply(apply(apply('RTC', 'R'), z), X)))) => $false))).

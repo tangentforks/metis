@@ -1,0 +1,16 @@
+% -----------------------------------------------------------------------------
+% Name: P46
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X] : ((p(X) & ! [Y] : ((p(Y) & h(Y, X)) => g(Y))) => g(X)) &
+      (? [X] : (p(X) & ~ g(X)) =>
+       ? [X] : (p(X) & ~ g(X) & ! [Y] : ((p(Y) & ~ g(Y)) => j(X, Y)))) &
+      ! [X, Y] : ((p(X) & p(Y) & h(X, Y)) => ~ j(Y, X))) =>
+     ! [X] : (p(X) => g(X)))).

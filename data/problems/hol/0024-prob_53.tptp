@@ -1,0 +1,123 @@
+% -----------------------------------------------------------------------------
+% Name: prob_53
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z] : (X != Y | X != Z | Y = Z) & ! [X] : X = X &
+      ! [X, Y] :
+        (X = Y | ~ bool(apply(X, apply(apply('EXT_POINT', X), Y))) |
+         ~ bool(apply(Y, apply(apply('EXT_POINT', X), Y)))) &
+      ! [X, Y] :
+        (X = Y | bool(apply(X, apply(apply('EXT_POINT', X), Y))) |
+         bool(apply(Y, apply(apply('EXT_POINT', X), Y)))) &
+      ! [X, Y] :
+        (X = Y |
+         apply(X, apply(apply('EXT_POINT', X), Y)) !=
+         apply(Y, apply(apply('EXT_POINT', X), Y))) &
+      ! [X, Y] : (~ bool(X) | X != Y | bool(Y)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | apply(X, Z) = apply(Y, V)) &
+      ~ bool(apply(existential, apply('K', falsity))) &
+      bool(apply(existential, apply('K', truth))) &
+      ~ bool(apply(universal, apply('K', falsity))) &
+      bool(apply(universal, apply('K', truth))) & ~ bool(falsity) &
+      bool(truth)) =>
+     ((! [X, Y, Z] :
+         (~ bool(apply(apply('IN', X), apply(prefix_set, 'x\'\'\''))) |
+          ~ bool(apply(apply('IN', X), apply(prefix_set, 'x\'\''))) |
+          ~ bool(apply(apply('IN', Y), c)) |
+          ~
+            bool(apply(apply('IN', apply(gv39280, Y)),
+                apply(prefix_set, 'x\'\''))) |
+          ~
+            bool(apply(apply('IN', apply(gv39280, Y)),
+                apply(prefix_set, Y))) |
+          ~
+            bool(apply(apply('IN', apply(gv39280, Z)),
+                apply(prefix_set, Z))) |
+          ~
+            bool(apply(apply('IN', apply(gv39280, Z)),
+                apply(prefix_set, 'x\'\'\''))) |
+          ~ bool(apply(apply('IN', Z), c))) &
+       ! [X, Y, Z] :
+         (~ bool(apply(apply('IN', X), apply(prefix_set, 'x\'\'\''))) |
+          ~ bool(apply(apply('IN', X), apply(prefix_set, 'x\'\''))) |
+          ~ bool(apply(apply('IN', Y), c)) |
+          bool(apply(apply('IN', apply(gv39280, Y)),
+              apply(prefix_set, 'x\'\''))) |
+          bool(apply(apply('IN', apply(gv39280, Y)),
+              apply(prefix_set, Y))) |
+          ~
+            bool(apply(apply('IN', apply(gv39280, Z)),
+                apply(prefix_set, Z))) |
+          ~
+            bool(apply(apply('IN', apply(gv39280, Z)),
+                apply(prefix_set, 'x\'\'\''))) |
+          ~ bool(apply(apply('IN', Z), c))) &
+       ! [X, Y, Z] :
+         (~ bool(apply(apply('IN', X), apply(prefix_set, 'x\'\'\''))) |
+          ~ bool(apply(apply('IN', X), apply(prefix_set, 'x\'\''))) |
+          ~ bool(apply(apply('IN', Y), c)) |
+          bool(apply(apply('IN', apply(gv39280, Y)),
+              apply(prefix_set, 'x\'\''))) |
+          bool(apply(apply('IN', apply(gv39280, Y)),
+              apply(prefix_set, Y))) |
+          bool(apply(apply('IN', apply(gv39280, Z)),
+              apply(prefix_set, Z))) |
+          bool(apply(apply('IN', apply(gv39280, Z)),
+              apply(prefix_set, 'x\'\'\''))) |
+          ~ bool(apply(apply('IN', Z), c))) &
+       ! [X, Y, Z] :
+         (~ bool(apply(apply('IN', X), apply(prefix_set, 'x\'\'\''))) |
+          ~ bool(apply(apply('IN', X), apply(prefix_set, 'x\'\''))) |
+          ~ bool(apply(apply('IN', Y), c)) |
+          ~
+            bool(apply(apply('IN', apply(gv39280, Y)),
+                apply(prefix_set, 'x\'\''))) |
+          ~
+            bool(apply(apply('IN', apply(gv39280, Y)),
+                apply(prefix_set, Y))) |
+          bool(apply(apply('IN', apply(gv39280, Z)),
+              apply(prefix_set, Z))) |
+          bool(apply(apply('IN', apply(gv39280, Z)),
+              apply(prefix_set, 'x\'\'\''))) |
+          ~ bool(apply(apply('IN', Z), c))) &
+       bool(apply(apply('IN', 'x\'\'\''), c)) &
+       bool(apply(apply('IN',
+             apply(apply('PREIMAGE', apply(apply(o, 'SND'), f)), 'x\'')),
+           apply(events, bern))) &
+       bool(apply(apply('IN', 'x\''), apply(events, bern))) &
+       bool(apply(prefix_cover, c)) &
+       bool(apply(apply('IN', apply(apply(o, 'FST'), f)),
+           apply(apply(measurable, apply(events, bern)), 'UNIV'))) &
+       bool(apply(countable, apply(range, apply(apply(o, 'FST'), f)))) &
+       bool(apply(apply('IN', apply(apply(o, 'SND'), f)),
+           apply(apply(measurable, apply(events, bern)),
+             apply(events, bern)))) &
+       ! [X, Y] :
+         (apply(f, X) =
+          apply(apply(pair, apply('FST', apply(f, apply(prefix_seq, Y)))),
+            apply(apply(sdrop, apply('LENGTH', Y)), X)) |
+          ~ bool(apply(apply('IN', Y), c)) |
+          ~ bool(apply(apply('IN', X), apply(prefix_set, Y)))) &
+       bool(apply(apply('IN',
+             apply(apply('PREIMAGE', apply(apply(o, 'FST'), f)), x)),
+           apply(events, bern))) & bool(apply(apply('IN', 'x\'\''), c)) &
+       (bool(apply(apply('IN', 'x\'\'\'\''), apply(prefix_set, 'x\'\''))) |
+        bool(apply(apply('IN', 'x\'\'\'\''),
+            apply(prefix_set, 'x\'\'\'')))) &
+       (~
+          bool(apply(apply('IN', 'x\'\'\'\''),
+              apply(prefix_set, 'x\'\''))) |
+        ~
+          bool(apply(apply('IN', 'x\'\'\'\''),
+              apply(prefix_set, 'x\'\'\'')))) &
+       bool(apply(apply('IN', 'x\'\'\'\'\''),
+           apply(prefix_set, 'x\'\''))) &
+       bool(apply(apply('IN', 'x\'\'\'\'\''),
+           apply(prefix_set, 'x\'\'\'')))) => $false))).

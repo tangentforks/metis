@@ -1,0 +1,25 @@
+% -----------------------------------------------------------------------------
+% Name: GILMORE_9
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% Model elimination (in HOL):
+% - With lemmaizing: (depth=18, inferences=15632, time=21s)
+% - Without: gave up waiting after (depth=25, inferences=2125072, ...)
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    (! [X] :
+       ? [Y] :
+         ! [Z] :
+           ((! [W] : ? [V] : (f(Y, W, V) & g(Y, W) & ~ h(Y, X)) =>
+             (! [W] : ? [V] : (f(X, W, V) & g(Z, u) & ~ h(X, Z)) =>
+              ! [W] : ? [V] : (f(X, W, V) & g(Y, W) & ~ h(X, Y)))) &
+            (! [W] : ? [V] : (f(X, W, V) & g(Y, W) & ~ h(X, Y)) =>
+             (~ ! [W] : ? [V] : (f(X, W, V) & g(Z, W) & ~ h(X, Z)) =>
+              (! [W] : ? [V] : (f(Y, W, V) & g(Y, W) & ~ h(Y, X)) &
+               ! [W] : ? [V] : (f(Z, W, V) & g(Y, W) & ~ h(Z, Y)))))))).

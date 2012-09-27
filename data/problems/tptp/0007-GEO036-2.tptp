@@ -1,0 +1,136 @@
+% -----------------------------------------------------------------------------
+% Name: GEO036-2
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y] : equidistant(X, Y, Y, X) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (~ equidistant(X, Y, Z, X0) | ~ equidistant(X, Y, Y0, Z0) |
+         equidistant(Z, X0, Y0, Z0)) &
+      ! [X, Y, Z] : (~ equidistant(X, Y, Z, Z) | X = Y) &
+      ! [X, Y, Z, V] : between(X, Y, extension(X, Y, Z, V)) &
+      ! [X, Y, Z, V] : equidistant(X, extension(Y, X, Z, V), Z, V) &
+      ! [X, Y, Z, V, W, X0, Y0, Z0] :
+        (~ equidistant(X, Y, Z, V) | ~ equidistant(Y, W, V, X0) |
+         ~ equidistant(X, Y0, Z, Z0) | ~ equidistant(Y, Y0, V, Z0) |
+         ~ between(X, Y, W) | ~ between(Z, V, X0) | X = Y |
+         equidistant(W, Y0, X0, Z0)) &
+      ! [X, Y] : (~ between(X, Y, X) | X = Y) &
+      ! [X, Y, Z, V, W] :
+        (~ between(X, Y, Z) | ~ between(V, W, Z) |
+         between(Y, inner_pasch(X, Y, Z, W, V), V)) &
+      ! [X, Y, Z, V, W] :
+        (~ between(X, Y, Z) | ~ between(V, W, Z) |
+         between(W, inner_pasch(X, Y, Z, W, V), X)) &
+      ~
+        between(lower_dimension_point_1, lower_dimension_point_2,
+          lower_dimension_point_3) &
+      ~
+        between(lower_dimension_point_2, lower_dimension_point_3,
+          lower_dimension_point_1) &
+      ~
+        between(lower_dimension_point_3, lower_dimension_point_1,
+          lower_dimension_point_2) &
+      ! [X, Y, Z, V, W] :
+        (~ equidistant(X, Y, X, Z) | ~ equidistant(V, Y, V, Z) |
+         ~ equidistant(W, Y, W, Z) | between(X, V, W) | between(V, W, X) |
+         between(W, X, V) | Y = Z) &
+      ! [X, Y, Z, V, W] :
+        (~ between(X, Y, Z) | ~ between(V, Y, W) | X = Y |
+         between(X, V, euclid1(X, V, Y, W, Z))) &
+      ! [X, Y, Z, V, W] :
+        (~ between(X, Y, Z) | ~ between(V, Y, W) | X = Y |
+         between(X, W, euclid2(X, V, Y, W, Z))) &
+      ! [X, Y, Z, V, W] :
+        (~ between(X, Y, Z) | ~ between(V, Y, W) | X = Y |
+         between(euclid1(X, V, Y, W, Z), Z, euclid2(X, V, Y, W, Z))) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (~ equidistant(X, Y, X, Z) | ~ equidistant(X, X0, X, Y0) |
+         ~ between(X, Y, X0) | ~ between(Y, Z0, X0) |
+         between(Z, continuous(X, Y, Z, Z0, X0, Y0), Y0)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (~ equidistant(X, Y, X, Z) | ~ equidistant(X, X0, X, Y0) |
+         ~ between(X, Y, X0) | ~ between(Y, Z0, X0) |
+         equidistant(X, Z0, X, continuous(X, Y, Z, Z0, X0, Y0))) &
+      ! [X, Y, Z, V] : (X != Y | ~ between(X, Z, V) | between(Y, Z, V)) &
+      ! [X, Y, Z, V] : (X != Y | ~ between(Z, X, V) | between(Z, Y, V)) &
+      ! [X, Y, Z, V] : (X != Y | ~ between(Z, V, X) | between(Z, V, Y)) &
+      ! [X, Y, Z, V, W] :
+        (X != Y | ~ equidistant(X, Z, V, W) | equidistant(Y, Z, V, W)) &
+      ! [X, Y, Z, V, W] :
+        (X != Y | ~ equidistant(Z, X, V, W) | equidistant(Z, Y, V, W)) &
+      ! [X, Y, Z, V, W] :
+        (X != Y | ~ equidistant(Z, V, X, W) | equidistant(Z, V, Y, W)) &
+      ! [X, Y, Z, V, W] :
+        (X != Y | ~ equidistant(Z, V, W, X) | equidistant(Z, V, W, Y)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (X != Y |
+         inner_pasch(X, Z, X0, Y0, Z0) = inner_pasch(Y, Z, X0, Y0, Z0)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (X != Y |
+         inner_pasch(Z, X, X0, Y0, Z0) = inner_pasch(Z, Y, X0, Y0, Z0)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (X != Y |
+         inner_pasch(Z, X0, X, Y0, Z0) = inner_pasch(Z, X0, Y, Y0, Z0)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (X != Y |
+         inner_pasch(Z, X0, Y0, X, Z0) = inner_pasch(Z, X0, Y0, Y, Z0)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (X != Y |
+         inner_pasch(Z, X0, Y0, Z0, X) = inner_pasch(Z, X0, Y0, Z0, Y)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (X != Y | euclid1(X, Z, X0, Y0, Z0) = euclid1(Y, Z, X0, Y0, Z0)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (X != Y | euclid1(Z, X, X0, Y0, Z0) = euclid1(Z, Y, X0, Y0, Z0)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (X != Y | euclid1(Z, X0, X, Y0, Z0) = euclid1(Z, X0, Y, Y0, Z0)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (X != Y | euclid1(Z, X0, Y0, X, Z0) = euclid1(Z, X0, Y0, Y, Z0)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (X != Y | euclid1(Z, X0, Y0, Z0, X) = euclid1(Z, X0, Y0, Z0, Y)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (X != Y | euclid2(X, Z, X0, Y0, Z0) = euclid2(Y, Z, X0, Y0, Z0)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (X != Y | euclid2(Z, X, X0, Y0, Z0) = euclid2(Z, Y, X0, Y0, Z0)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (X != Y | euclid2(Z, X0, X, Y0, Z0) = euclid2(Z, X0, Y, Y0, Z0)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (X != Y | euclid2(Z, X0, Y0, X, Z0) = euclid2(Z, X0, Y0, Y, Z0)) &
+      ! [X, Y, Z, X0, Y0, Z0] :
+        (X != Y | euclid2(Z, X0, Y0, Z0, X) = euclid2(Z, X0, Y0, Z0, Y)) &
+      ! [X, Y, Z, V, W] :
+        (X != Y | extension(X, Z, V, W) = extension(Y, Z, V, W)) &
+      ! [X, Y, Z, V, W] :
+        (X != Y | extension(Z, X, V, W) = extension(Z, Y, V, W)) &
+      ! [X, Y, Z, V, W] :
+        (X != Y | extension(Z, V, X, W) = extension(Z, V, Y, W)) &
+      ! [X, Y, Z, V, W] :
+        (X != Y | extension(Z, V, W, X) = extension(Z, V, W, Y)) &
+      ! [X, Y, Z, V, W, X0, Y0] :
+        (X != Y |
+         continuous(X, Z, V, W, X0, Y0) = continuous(Y, Z, V, W, X0, Y0)) &
+      ! [X, Y, Z, V, W, X0, Y0] :
+        (X != Y |
+         continuous(Z, X, V, W, X0, Y0) = continuous(Z, Y, V, W, X0, Y0)) &
+      ! [X, Y, Z, V, W, X0, Y0] :
+        (X != Y |
+         continuous(Z, V, X, W, X0, Y0) = continuous(Z, V, Y, W, X0, Y0)) &
+      ! [X, Y, Z, V, W, X0, Y0] :
+        (X != Y |
+         continuous(Z, V, W, X, X0, Y0) = continuous(Z, V, W, Y, X0, Y0)) &
+      ! [X, Y, Z, V, W, X0, Y0] :
+        (X != Y |
+         continuous(Z, V, W, X0, X, Y0) = continuous(Z, V, W, X0, Y, Y0)) &
+      ! [X, Y, Z, V, W, X0, Y0] :
+        (X != Y |
+         continuous(Z, V, W, X0, Y0, X) =
+         continuous(Z, V, W, X0, Y0, Y))) =>
+     ((lower_dimension_point_1 = lower_dimension_point_2 |
+       lower_dimension_point_2 = lower_dimension_point_3 |
+       lower_dimension_point_1 = lower_dimension_point_3) => $false))).

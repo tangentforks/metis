@@ -1,0 +1,21 @@
+% -----------------------------------------------------------------------------
+% Name: GILMORE_1
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% Amazingly, this still seems non-trivial... in HOL [MESON_TAC] it
+% works at depth 45! [JRH]
+% Confirmed (depth=45, inferences=263702, time=148s), though if
+% lemmaizing is used then a lemma is discovered at depth 29 that allows
+% a much quicker proof (depth=30, inferences=10039, time=5.5s).
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    (? [X] :
+       ! [Y, Z] :
+         ((((f(Y) => g(Y)) <=> f(X)) & ((f(Y) => h(Y)) <=> g(X)) &
+           (((f(Y) => g(Y)) => h(Y)) <=> h(X))) => (f(Z) & g(Z) & h(Z))))).

@@ -1,0 +1,16 @@
+% -----------------------------------------------------------------------------
+% Name: KLEIN_GROUP_COMMUTATIVE
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z] :
+        multiply(X, multiply(Y, Z)) = multiply(multiply(X, Y), Z) &
+      ! [X] : multiply(e, X) = X & ! [X] : multiply(X, e) = X &
+      ! [X] : multiply(X, X) = e) =>
+     ! [X, Y] : multiply(X, Y) = multiply(Y, X))).

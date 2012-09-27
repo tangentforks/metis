@@ -1,0 +1,29 @@
+% -----------------------------------------------------------------------------
+% Name: CONWAY_2
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% From a John Harrison post to hol-info on 2008-04-15
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X] : add(0, X) = X & ! [X, Y] : add(X, Y) = add(Y, X) &
+      ! [X, Y, Z] : add(X, add(Y, Z)) = add(add(X, Y), Z) &
+      ! [X] : multiply(1, X) = X & ! [X] : multiply(X, 1) = X &
+      ! [X, Y, Z] :
+        multiply(X, multiply(Y, Z)) = multiply(multiply(X, Y), Z) &
+      ! [X] : multiply(0, X) = 0 & ! [X] : multiply(X, 0) = 0 &
+      ! [X, Y, Z] :
+        multiply(X, add(Y, Z)) = add(multiply(X, Y), multiply(X, Z)) &
+      ! [X, Y, Z] :
+        multiply(add(X, Y), Z) = add(multiply(X, Z), multiply(Y, Z)) &
+      ! [X, Y] :
+        star(multiply(X, Y)) =
+        add(1, multiply(multiply(X, star(multiply(Y, X))), Y)) &
+      ! [X, Y] :
+        star(add(X, Y)) = multiply(star(multiply(star(x), Y)), star(x))) =>
+     ! [A] : star(star(star(star(a)))) = star(star(star(a))))).

@@ -1,0 +1,23 @@
+% -----------------------------------------------------------------------------
+% Name: LCL187-1
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X] : axiom(or(not(or(X, X)), X)) &
+      ! [X, Y] : axiom(or(not(X), or(Y, X))) &
+      ! [X, Y] : axiom(or(not(or(X, Y)), or(Y, X))) &
+      ! [X, Y, Z] : axiom(or(not(or(X, or(Y, Z))), or(Y, or(X, Z)))) &
+      ! [X, Y, Z] :
+        axiom(or(not(or(not(X), Y)), or(not(or(Z, X)), or(Z, Y)))) &
+      ! [X] : (theorem(X) | ~ axiom(X)) &
+      ! [X, Y] : (theorem(X) | ~ axiom(or(not(Y), X)) | ~ theorem(Y)) &
+      ! [X, Y, Z] :
+        (theorem(or(not(X), Y)) | ~ axiom(or(not(X), Z)) |
+         ~ theorem(or(not(Z), Y)))) =>
+     (~ theorem(or(not(p), or(not(not(p)), q))) => $false))).

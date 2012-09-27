@@ -1,0 +1,13 @@
+% -----------------------------------------------------------------------------
+% Name: P43
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    (! [X, Y] : (q(X, Y) <=> ! [Z] : (p(Z, X) <=> p(Z, Y))) =>
+     ! [X, Y] : (q(X, Y) <=> q(Y, X)))).

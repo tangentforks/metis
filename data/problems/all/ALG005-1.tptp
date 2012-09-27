@@ -1,0 +1,17 @@
+% -----------------------------------------------------------------------------
+% Name: ALG005-1
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y] : add(X, add(Y, X)) = X &
+      ! [X, Y] : add(X, add(X, Y)) = add(Y, add(Y, X)) &
+      ! [X, Y, Z] : add(add(X, Y), Z) = add(add(X, Z), add(Y, Z)) &
+      ! [X, Y] : multiply(X, Y) = add(X, add(X, Y))) =>
+     (multiply(multiply(a, b), c) != multiply(a, multiply(b, c)) =>
+      $false))).

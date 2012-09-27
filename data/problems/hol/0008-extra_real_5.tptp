@@ -1,0 +1,56 @@
+% -----------------------------------------------------------------------------
+% Name: extra_real_5
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((~ bool(apply(existential, apply('K', falsity))) &
+      bool(apply(existential, apply('K', truth))) &
+      ~ bool(apply(universal, apply('K', falsity))) &
+      bool(apply(universal, apply('K', truth))) & ~ bool(falsity) &
+      bool(truth)) =>
+     ((! [X, Y, Z, V] :
+         (bool(apply(apply(real_lt, X), apply(sup, 'P'))) |
+          ~ bool(apply('P', Y)) | ~ bool(apply(apply(real_lt, X), Y)) |
+          ~ bool(apply('P', Z)) |
+          ~ bool(apply(apply(real_lte, apply(gv6327, V)), V))) &
+       ! [X, Y, Z] :
+         (~ bool(apply(apply(real_lt, X), apply(sup, 'P'))) |
+          bool(apply('P', apply(gv6327, X))) | ~ bool(apply('P', Y)) |
+          ~ bool(apply(apply(real_lte, apply(gv6327, Z)), Z))) &
+       ! [X, Y, Z] :
+         (~ bool(apply(apply(real_lt, X), apply(sup, 'P'))) |
+          bool(apply(apply(real_lt, X), apply(gv6327, X))) |
+          ~ bool(apply('P', Y)) |
+          ~ bool(apply(apply(real_lte, apply(gv6327, Z)), Z))) &
+       ! [X, Y, Z] :
+         (~ bool(apply(apply(real_lt, X), apply(sup, 'P'))) |
+          bool(apply(apply(real_lt, X), apply(gv6327, X))) |
+          ~ bool(apply('P', Y)) | bool(apply('P', apply(gv6327, Z)))) &
+       ! [X, Y, Z] :
+         (~ bool(apply(apply(real_lt, X), apply(sup, 'P'))) |
+          bool(apply('P', apply(gv6327, X))) | ~ bool(apply('P', Y)) |
+          bool(apply('P', apply(gv6327, Z)))) &
+       ! [X, Y, Z, V] :
+         (bool(apply(apply(real_lt, X), apply(sup, 'P'))) |
+          ~ bool(apply('P', Y)) | ~ bool(apply(apply(real_lt, X), Y)) |
+          ~ bool(apply('P', Z)) | bool(apply('P', apply(gv6327, V)))) &
+       bool(apply('P', x)) &
+       ! [X] :
+         (bool(apply(apply(real_lte, X), z)) | ~ bool(apply('P', X))) &
+       ! [X] :
+         (bool(apply(apply(real_lt, apply(gv6328, X)), apply(gv6329, X))) |
+          bool(apply(apply(real_lt, apply(gv6328, X)), X))) &
+       ! [X] :
+         (bool(apply('P', apply(gv6329, X))) |
+          bool(apply(apply(real_lt, apply(gv6328, X)), X))) &
+       ! [X, Y] :
+         (~ bool(apply(apply(real_lt, apply(gv6328, X)), Y)) |
+          ~ bool(apply('P', Y)) |
+          ~ bool(apply(apply(real_lt, apply(gv6328, X)), X)))) =>
+      $false))).

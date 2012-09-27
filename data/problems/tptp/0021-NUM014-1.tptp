@@ -1,0 +1,18 @@
+% -----------------------------------------------------------------------------
+% Name: NUM014-1
+%
+% Collection: tptp
+% Description: Sample problems from the TPTP collection
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X] : product(X, X, square(X)) &
+      ! [X, Y, Z] : (~ product(X, Y, Z) | product(Y, X, Z)) &
+      ! [X, Y, Z] : (~ product(X, Y, Z) | divides(X, Z)) &
+      ! [X, Y, Z, V] :
+        (~ prime(X) | ~ product(Y, Z, V) | ~ divides(X, V) |
+         divides(X, Y) | divides(X, Z)) & prime(a) &
+      product(a, square(c), square(b))) => (~ divides(a, b) => $false))).

@@ -1,0 +1,15 @@
+% -----------------------------------------------------------------------------
+% Name: P18
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% The drinker's principle.
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    (? [Very_popular_guy] :
+       ! [Whole_pub] : (drinks(Very_popular_guy) => drinks(Whole_pub)))).

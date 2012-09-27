@@ -1,0 +1,36 @@
+% -----------------------------------------------------------------------------
+% Name: REVERSE_REVERSE
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% Proving the goal
+%   !l. finite l ==> rev (rev l) = l
+% after first generalizing it to
+%   !l k. finite l /\ finite k ==> rev (rev l @ k) = rev k @ l
+% and then applying list induction.
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((finite(nil) & ! [H, T] : (finite(cons(H, T)) <=> finite(T)) &
+      ! [L1, L2] : (finite(append(L1, L2)) <=> (finite(L1) & finite(L2))) &
+      ! [L] : append(nil, L) = L &
+      ! [H, T, L] : append(cons(H, T), L) = cons(H, append(T, L)) &
+      rev(nil) = nil &
+      ! [H, T] : rev(cons(H, T)) = append(rev(T), cons(H, nil)) &
+      ! [L] : append(L, nil) = L &
+      ! [L1, L2, L3] :
+        append(L1, append(L2, L3)) = append(append(L1, L2), L3)) =>
+     (! [K] :
+        (finite(K) => rev(append(rev(nil), K)) = append(rev(K), nil)) &
+      ! [T] :
+        (finite(T) =>
+         (! [K] :
+            (finite(K) => rev(append(rev(T), K)) = append(rev(K), T)) =>
+          ! [H, K] :
+            (finite(K) =>
+             rev(append(rev(cons(H, T)), K)) =
+             append(rev(K), cons(H, T)))))))).

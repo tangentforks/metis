@@ -1,0 +1,15 @@
+% -----------------------------------------------------------------------------
+% Name: GILMORE_3
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    (? [X] :
+       ! [Y, Z] :
+         ((((f(Y, Z) => (g(Y) => h(X))) => f(X, X)) &
+           ((f(Z, X) => g(X)) => h(Z)) & f(X, Y)) => f(Z, Z)))).

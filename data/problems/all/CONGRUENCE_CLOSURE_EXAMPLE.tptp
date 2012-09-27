@@ -1,0 +1,14 @@
+% -----------------------------------------------------------------------------
+% Name: CONGRUENCE_CLOSURE_EXAMPLE
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% The example always given for congruence closure.
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    (! [X] : ((f(f(f(f(f(X))))) = X & f(f(f(X))) = X) => f(X) = X))).

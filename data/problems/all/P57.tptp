@@ -1,0 +1,14 @@
+% -----------------------------------------------------------------------------
+% Name: P57
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((p(f(a, b), f(b, c)) & p(f(b, c), f(a, c)) &
+      ! [X, Y, Z] : ((p(X, Y) & p(Y, Z)) => p(X, Z))) =>
+     p(f(a, b), f(a, c)))).

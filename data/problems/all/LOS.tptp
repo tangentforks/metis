@@ -1,0 +1,19 @@
+% -----------------------------------------------------------------------------
+% Name: LOS
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% The classic Los puzzle. (Clausal version MSC006-1 in the TPTP library.)
+% Note: this is actually in the decidable AE subset, though that doesn't
+% yield a very efficient proof. [JRH]
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z] : (p(X, Y) => (p(Y, Z) => p(X, Z))) &
+      ! [X, Y, Z] : (q(X, Y) => (q(Y, Z) => q(X, Z))) &
+      ! [X, Y] : (q(X, Y) => q(Y, X)) & ! [X, Y] : (p(X, Y) | q(X, Y))) =>
+     (! [X, Y] : p(X, Y) | ! [X, Y] : q(X, Y)))).

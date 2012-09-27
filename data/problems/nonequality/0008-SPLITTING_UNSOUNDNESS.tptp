@@ -1,0 +1,16 @@
+% -----------------------------------------------------------------------------
+% Name: SPLITTING_UNSOUNDNESS
+%
+% Collection: nonequality
+% Description: Problems without equality from various sources
+%
+% A trivial example to illustrate a bug spotted by
+% Geoff Sutcliffe in Dec 2008.
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    (! [X] : ((p(X) & q(X)) => $false) =>
+     ! [X] : (p(X) => ! [X] : (q(X) => $false)))).

@@ -1,0 +1,27 @@
+% -----------------------------------------------------------------------------
+% Name: XOR_COUNT_ASSOCIATIVE
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% The xor literal counting function in Normalize is associative.
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y] : add(X, Y) = add(Y, X) &
+      ! [X, Y, Z] : add(X, add(Y, Z)) = add(add(X, Y), Z) &
+      ! [X, Y] : multiply(X, Y) = multiply(Y, X) &
+      ! [X, Y, Z] :
+        multiply(X, multiply(Y, Z)) = multiply(multiply(X, Y), Z) &
+      px = add(multiply(p1, p2), multiply(n1, n2)) &
+      nx = add(multiply(p1, n2), multiply(n1, p2)) &
+      pl = add(multiply(px, p3), multiply(nx, n3)) &
+      nl = add(multiply(px, n3), multiply(nx, p3)) &
+      py = add(multiply(p2, p3), multiply(n2, n3)) &
+      ny = add(multiply(p2, n3), multiply(n2, p3)) &
+      pr = add(multiply(p1, py), multiply(n1, ny)) &
+      nr = add(multiply(p1, ny), multiply(n1, py))) =>
+     (pl = pr & nl = nr))).

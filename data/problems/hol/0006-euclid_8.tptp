@@ -1,0 +1,23 @@
+% -----------------------------------------------------------------------------
+% Name: euclid_8
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z, V] :
+        (X != Y | Z != V | multiply(X, Z) = multiply(Y, V)) &
+      ! [X, Y, Z, V] :
+        (X != Y | Z != V | divides(Y, V) | ~ divides(X, Z)) &
+      ! [X, Y, Z] : (X != Y | X != Z | Y = Z) & ! [X] : X = X &
+      ! [X, Y] : multiply(X, Y) = multiply(Y, X) &
+      ! [X, Y, Z] :
+        multiply(X, multiply(Y, Z)) = multiply(multiply(X, Y), Z) &
+      ! [X, Y] : (~ divides(X, Y) | Y = multiply(X, gv7050(X, Y))) &
+      ! [X, Y, Z] : (divides(X, Y) | Y != multiply(X, Z))) =>
+     ((divides(gv7000, gv7001) &
+       ~ divides(gv7000, multiply(gv7002, gv7001))) => $false))).

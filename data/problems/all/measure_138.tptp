@@ -1,0 +1,51 @@
+% -----------------------------------------------------------------------------
+% Name: measure_138
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y, Z] : (~ 'SUBSET'(X, Y) | 'IN'(Z, Y) | ~ 'IN'(Z, X)) &
+      ! [X, Y] : ('SUBSET'(X, Y) | 'IN'(gv122874(X, Y), X)) &
+      ! [X, Y] : ('SUBSET'(X, Y) | ~ 'IN'(gv122874(X, Y), Y)) &
+      ! [X] : sigma_algebra(sigma(X)) &
+      ! [X, Y, Z] : (~ 'IN'(X, 'INTER'(Y, Z)) | 'IN'(X, Z)) &
+      ! [X, Y, Z] : (~ 'IN'(X, 'INTER'(Y, Z)) | 'IN'(X, Y)) &
+      ! [X, Y, Z] :
+        ('IN'(X, 'INTER'(Y, Z)) | ~ 'IN'(X, Y) | ~ 'IN'(X, Z)) &
+      ! [X, Y] :
+        (~ sigma_algebra(X) | 'IN'('BIGUNION'(Y), X) | ~ countable(Y) |
+         ~ 'SUBSET'(Y, X)) &
+      ! [X, Y] :
+        (~ sigma_algebra(X) | 'IN'('COMPL'(Y), X) | ~ 'IN'(Y, X)) &
+      ! [X] : (~ sigma_algebra(X) | 'IN'('EMPTY', X)) &
+      ! [X] :
+        (sigma_algebra(X) | ~ 'IN'('EMPTY', X) |
+         ~ 'IN'('COMPL'(gv122851(X)), X) | 'SUBSET'(gv122852(X), X)) &
+      ! [X] :
+        (sigma_algebra(X) | ~ 'IN'('EMPTY', X) | 'IN'(gv122851(X), X) |
+         'SUBSET'(gv122852(X), X)) &
+      ! [X] :
+        (sigma_algebra(X) | ~ 'IN'('EMPTY', X) | 'IN'(gv122851(X), X) |
+         countable(gv122852(X))) &
+      ! [X] :
+        (sigma_algebra(X) | ~ 'IN'('EMPTY', X) |
+         ~ 'IN'('COMPL'(gv122851(X)), X) | countable(gv122852(X))) &
+      ! [X] :
+        (sigma_algebra(X) | ~ 'IN'('EMPTY', X) | 'IN'(gv122851(X), X) |
+         ~ 'IN'('BIGUNION'(gv122852(X)), X)) &
+      ! [X] :
+        (sigma_algebra(X) | ~ 'IN'('EMPTY', X) |
+         ~ 'IN'('COMPL'(gv122851(X)), X) |
+         ~ 'IN'('BIGUNION'(gv122852(X)), X))) =>
+     (('SUBSET'(c, 'INTER'(p, sigma(a))) &
+       ! [X] :
+         ('IN'('BIGUNION'(X), p) | ~ countable(X) |
+          ~ 'SUBSET'(X, 'INTER'(p, sigma(a)))) & 'SUBSET'(a, p) &
+       'IN'('EMPTY', p) &
+       ! [X] : ('IN'('COMPL'(X), p) | ~ 'IN'(X, 'INTER'(p, sigma(a)))) &
+       countable(c) & ~ 'IN'('BIGUNION'(c), sigma(a))) => $false))).

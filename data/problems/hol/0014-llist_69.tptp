@@ -1,0 +1,36 @@
+% -----------------------------------------------------------------------------
+% Name: llist_69
+%
+% Collection: hol
+% Description: HOL subgoals sent to MESON_TAC
+%
+% TPTP file created by sherlock at 21:36:41 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture,
+    ((! [X, Y] : (X != Y | 'LTL'(X) = 'LTL'(Y)) &
+      ! [X, Y] : (X != Y | 'SOME'(X) = 'SOME'(Y)) &
+      ! [X, Y] : (X != Y | 'LHD'(X) = 'LHD'(Y)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | 'LCONS'(X, Z) = 'LCONS'(Y, V)) &
+      ! [X, Y] : (X != Y | g(X) = g(Y)) &
+      ! [X, Y] : (X != Y | 'THE'(X) = 'THE'(Y)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | 'LNTH'(Z, X) = 'LNTH'(V, Y)) &
+      ! [X, Y, Z, V] : (X != Y | Z != V | 'LDROP'(Z, X) = 'LDROP'(V, Y)) &
+      ! [X, Y] : (X != Y | 'SUC'(X) = 'SUC'(Y)) &
+      ! [X, Y, Z] : (X != Y | X != Z | Y = Z) & ! [X] : X = X &
+      ! [X, Y, Z] : (X != 'LCONS'(Y, Z) | 'LTL'(X) = 'SOME'(Z)) &
+      ! [X, Y, Z] : (X != 'LCONS'(Y, Z) | 'LHD'(X) = 'SOME'(Y)) &
+      ! [X, Y, Z] :
+        (X = 'LCONS'(Y, Z) | 'LHD'(X) != 'SOME'(Y) |
+         'LTL'(X) != 'SOME'(Z))) =>
+     (('LTL'(g('LCONS'('LNIL', t))) =
+       'SOME'(g('LCONS'('THE'('LTL'('THE'('LNTH'(n, t)))),
+             'THE'('LDROP'('SUC'(n), t))))) &
+       'LHD'(g('LCONS'('LNIL', t))) =
+       'SOME'('THE'('LHD'('THE'('LNTH'(n, t))))) &
+       'LHD'(g(t)) = 'SOME'('THE'('LHD'('THE'('LNTH'(n, t))))) &
+       'LTL'(g(t)) =
+       'SOME'(g('LCONS'('THE'('LTL'('THE'('LNTH'(n, t)))),
+             'THE'('LDROP'('SUC'(n), t))))) &
+       g('LCONS'('LNIL', t)) != g(t)) => $false))).

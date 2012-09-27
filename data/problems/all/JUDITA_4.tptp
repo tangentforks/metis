@@ -1,0 +1,11 @@
+% -----------------------------------------------------------------------------
+% Name: JUDITA_4
+%
+% Collection: equality
+% Description: Equality problems from various sources
+%
+% TPTP file created by sherlock at 21:36:40 on 27/09/2012.
+% -----------------------------------------------------------------------------
+
+
+fof(goal, conjecture, ((p(a) & ~ p(b) & ! [X, Y] : X = Y) => $false)).
